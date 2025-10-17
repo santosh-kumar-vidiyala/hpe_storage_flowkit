@@ -1,0 +1,6 @@
+/* Custom tweaks for HPE Storage Flowkit MkDocs site */
+.badge { background:#063970; color:#fff; padding:2px 6px; font-size:0.65rem; border-radius:3px; letter-spacing:.5px; }
+.table-wrap table { font-size:0.85rem; }
+.workflow-grid .card { transition:box-shadow .15s ease; }
+.workflow-grid .card:hover { box-shadow:0 2px 6px rgba(0,0,0,.15); }
+code { background:#eef2f7; padding:2px 4px; border-radius:3px; }

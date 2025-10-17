@@ -13,10 +13,11 @@
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="css/custom.css" rel="stylesheet" />
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Welcome to MkDocs";
+    var mkdocs_page_name = "Home";
     var mkdocs_page_input_path = "index.md";
     var mkdocs_page_url = null;
   </script>
@@ -45,23 +46,51 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <p class="caption"><span class="caption-text">Home</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href=".">None</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#key-concepts">Key Concepts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#api-reference">API Reference</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#workflows-at-a-glance">Workflows At A Glance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">API Reference</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference.html">None</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Workflows</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="#">CPG</a>
-    <ul>
-                <li class="toctree-l2"><a class="" href="cpg.html">None</a>
-                </li>
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="api/cpg.html">CPGWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/volume.html">VolumeWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/snapshot.html">SnapshotWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/clone.html">CloneWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/vlun.html">VLUNWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/host.html">HostWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/hostset.html">HostSetWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/volumeset.html">VolumeSetWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/qos.html">QOSWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/remote_copy_group.html">RemoteCopyGroupWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/system.html">SystemWorkflow</a>
                     </li>
                 </ul>
       </div>
@@ -85,7 +114,7 @@
     
       
     
-    <li>Welcome to MkDocs</li>
+    <li>Home</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -96,25 +125,132 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+                <h1 id="hpe-storage-flowkit">HPE Storage Flowkit<a class="headerlink" href="#hpe-storage-flowkit" title="Permanent link">&para;</a></h1>
+<p>Workflow‑centric Python toolkit for HPE Storage arrays. It layers orchestration and idempotent behaviors over raw REST endpoints, providing high‑level workflow classes you can call directly or via the composite <code>AnsibleClient</code>.</p>
+<h2 id="key-concepts">Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workflow Classes</td>
+<td>Domain‑specific facades (VolumeWorkflow, SnapshotWorkflow, etc.) mapping method calls to REST endpoints or SSH commands.</td>
+</tr>
+<tr>
+<td>Idempotence</td>
+<td>Methods aim to avoid unnecessary changes; existence checks precede destructive operations.</td>
+</tr>
+<tr>
+<td>Composite Client</td>
+<td><code>AnsibleClient</code> aggregates all workflows into a single interface for automation.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<pre><code class="language-python">from hpe_storage_flowkit.src.session import SessionManager
+from hpe_storage_flowkit.src.workflows.volume import VolumeWorkflow
+
+sm = SessionManager(&quot;https://array.example&quot;, username=&quot;admin&quot;, password=&quot;secret&quot;)
+volumes = VolumeWorkflow(sm)
+volumes.create_volume(&quot;demo_vol&quot;, {&quot;cpg&quot;: &quot;FC_r5&quot;, &quot;sizeMiB&quot;: 10240})
 </code></pre>
+<h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h2>
+<p>Access full method signatures, parameters, return types, and REST mappings:</p>
+<ul>
+<li><strong><a href="api_reference.html">API Reference</a></strong> lists all workflows.</li>
+</ul>
+<h2 id="workflows-at-a-glance">Workflows At A Glance<a class="headerlink" href="#workflows-at-a-glance" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Workflow</th>
+<th>Purpose</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPGWorkflow</td>
+<td>Manage Common Provisioning Groups.</td>
+<td><a href="api/cpg.html">Open</a></td>
+</tr>
+<tr>
+<td>VolumeWorkflow</td>
+<td>CRUD, growth, tuning of volumes.</td>
+<td><a href="api/volume.html">Open</a></td>
+</tr>
+<tr>
+<td>SnapshotWorkflow</td>
+<td>Create / promote / delete snapshots.</td>
+<td><a href="api/snapshot.html">Open</a></td>
+</tr>
+<tr>
+<td>CloneWorkflow</td>
+<td>Physical copy operations.</td>
+<td><a href="api/clone.html">Open</a></td>
+</tr>
+<tr>
+<td>VLUNWorkflow</td>
+<td>Export volumes/sets to hosts/host sets.</td>
+<td><a href="api/vlun.html">Open</a></td>
+</tr>
+<tr>
+<td>HostWorkflow</td>
+<td>Host lifecycle &amp; initiator management.</td>
+<td><a href="api/host.html">Open</a></td>
+</tr>
+<tr>
+<td>HostSetWorkflow</td>
+<td>Group hosts for shared operations.</td>
+<td><a href="api/hostset.html">Open</a></td>
+</tr>
+<tr>
+<td>VolumeSetWorkflow</td>
+<td>Group volumes for policy/export.</td>
+<td><a href="api/volumeset.html">Open</a></td>
+</tr>
+<tr>
+<td>QOSWorkflow</td>
+<td>Define and manage QoS policies.</td>
+<td><a href="api/qos.html">Open</a></td>
+</tr>
+<tr>
+<td>RemoteCopyGroupWorkflow</td>
+<td>Remote replication group control.</td>
+<td><a href="api/remote_copy_group.html">Open</a></td>
+</tr>
+<tr>
+<td>SystemWorkflow</td>
+<td>System metadata retrieval.</td>
+<td><a href="api/system.html">Open</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Explore a workflow page (e.g., VolumeWorkflow) to see endpoints and parameter tables.</li>
+<li>Integrate with automation by composing workflows inside your toolchain.</li>
+<li>Add CI to rebuild this site using <code>mkdocs build</code> on commits.</li>
+</ol>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p>Pull requests: ensure new methods have updated docs. Automated generation script (future) will live under <code>tools/</code>. Proposals welcome.</p>
+<hr />
+<p>© 2025 Hewlett Packard Enterprise. All rights reserved.</p>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api_reference.html" class="btn btn-neutral float-right" title="API Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
   
 
   <hr/>
@@ -139,6 +275,8 @@ docs/
       
       
       
+        <span style="margin-left: 15px"><a href="api_reference.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     </span>
 </div>
     <script>var base_url = '.';</script>
@@ -155,5 +293,5 @@ docs/
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2025-10-17 12:43:49.572594+00:00
+Build Date UTC : 2025-10-17 12:59:30.264722+00:00
 -->
