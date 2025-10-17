@@ -27,25 +27,26 @@ volumes.create_volume("demo_vol", {"cpg": "FC_r5", "sizeMiB": 10240})
 
 ## API Reference
 
-Access full method signatures, parameters, return types, and REST mappings:
+Access full method signatures, parameters, return types, and REST/SSH mappings:
 
-- **[API Reference](api_reference.html)** lists all workflows.
+- **[API Reference](api_reference.md)** lists all workflows and preprocessing notes.
 
 ## Workflows At A Glance
 
 | Workflow | Purpose | Link |
 |----------|---------|------|
-| CPGWorkflow | Manage Common Provisioning Groups. | [Open](api/cpg.html) |
-| VolumeWorkflow | CRUD, growth, tuning of volumes. | [Open](api/volume.html) |
-| SnapshotWorkflow | Create / promote / delete snapshots. | [Open](api/snapshot.html) |
-| CloneWorkflow | Physical copy operations. | [Open](api/clone.html) |
-| VLUNWorkflow | Export volumes/sets to hosts/host sets. | [Open](api/vlun.html) |
-| HostWorkflow | Host lifecycle & initiator management. | [Open](api/host.html) |
-| HostSetWorkflow | Group hosts for shared operations. | [Open](api/hostset.html) |
-| VolumeSetWorkflow | Group volumes for policy/export. | [Open](api/volumeset.html) |
-| QOSWorkflow | Define and manage QoS policies. | [Open](api/qos.html) |
-| RemoteCopyGroupWorkflow | Remote replication group control. | [Open](api/remote_copy_group.html) |
-| SystemWorkflow | System metadata retrieval. | [Open](api/system.html) |
+| CPGWorkflow | Manage Common Provisioning Groups. | [Open](api/cpg.md) |
+| VolumeWorkflow | CRUD, growth, tuning of volumes. | [Open](api/volume.md) |
+| SnapshotWorkflow | Create / promote / delete snapshots. | [Open](api/snapshot.md) |
+| CloneWorkflow | Physical copy operations. | [Open](api/clone.md) |
+| VLUNWorkflow | Export volumes/sets to hosts/host sets. | [Open](api/vlun.md) |
+| HostWorkflow | Host lifecycle & initiator management. | [Open](api/host.md) |
+| HostSetWorkflow | Group hosts for shared operations. | [Open](api/hostset.md) |
+| VolumeSetWorkflow | Group volumes for policy/export. | [Open](api/volumeset.md) |
+| QOSWorkflow | Define and manage QoS policies. | [Open](api/qos.md) |
+| RemoteCopyGroupWorkflow | Remote replication group control. | [Open](api/remote_copy_group.md) |
+| SystemWorkflow | System metadata retrieval. | [Open](api/system.md) |
+| Schedule Operations | Snapshot schedule lifecycle (create/modify/suspend/resume). | [Open](api/schedule.md) |
 
 ## Next Steps
 

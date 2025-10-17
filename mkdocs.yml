@@ -3,19 +3,20 @@ theme:
   name: readthedocs
 nav:
   - Home: index.md
-  - API Reference: api_reference.html
+  - API Reference: api_reference.md
   - Workflows:
-    - CPGWorkflow: api/cpg.html
-    - VolumeWorkflow: api/volume.html
-    - SnapshotWorkflow: api/snapshot.html
-    - CloneWorkflow: api/clone.html
-    - VLUNWorkflow: api/vlun.html
-    - HostWorkflow: api/host.html
-    - HostSetWorkflow: api/hostset.html
-    - VolumeSetWorkflow: api/volumeset.html
-    - QOSWorkflow: api/qos.html
-    - RemoteCopyGroupWorkflow: api/remote_copy_group.html
-    - SystemWorkflow: api/system.html
+    - CPGWorkflow: api/cpg.md
+    - VolumeWorkflow: api/volume.md
+    - SnapshotWorkflow: api/snapshot.md
+    - CloneWorkflow: api/clone.md
+    - VLUNWorkflow: api/vlun.md
+    - HostWorkflow: api/host.md
+    - HostSetWorkflow: api/hostset.md
+    - VolumeSetWorkflow: api/volumeset.md
+    - QOSWorkflow: api/qos.md
+    - RemoteCopyGroupWorkflow: api/remote_copy_group.md
+    - SystemWorkflow: api/system.md
+    - Schedule Operations: api/schedule.md
 
 extra:
   social:
