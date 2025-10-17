@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>VLUNWorkflow API Reference</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;color:#222;line-height:1.45}
+header{background:#063970;color:#fff;padding:24px 40px}
+header h1{margin:0;font-size:1.8rem}
+nav{background:#f5f7fa;padding:12px 40px;border-bottom:1px solid #d8dde6}
+nav a{margin-right:16px;color:#063970;text-decoration:none;font-weight:600}
+main{padding:32px 40px;max-width:1100px}
+.method{margin-bottom:42px}
+.method h2{margin:0 0 6px;font-size:1.25rem;color:#063970}
+.signature{font-family:monospace;font-size:.95rem}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin-top:10px}
+th,td{border:1px solid #d8dde6;padding:8px;font-size:.85rem;text-align:left;vertical-align:top}
+th{background:#f0f4f9}
+.badge{display:inline-block;background:#063970;color:#fff;padding:2px 6px;font-size:.65rem;border-radius:3px;margin-left:6px;letter-spacing:.5px}
+.code{font-family:monospace;background:#eef2f7;padding:2px 4px;border-radius:3px}
+footer{margin-top:60px;background:#f5f7fa;padding:20px 40px;font-size:.8rem;color:#555;border-top:1px solid #e2e6ea}
+</style>
+</head>
+<body>
+<header>
+  <h1>VLUNWorkflow</h1>
+  <p style="margin:4px 0 0;font-weight:300">Volume LUN export operations.</p>
+</header>
+<nav>
+  <a href="../api_reference.html">API Reference</a>
+  <a href="../index.html">Home</a>
+</nav>
+<main>
+  <section>
+    <h2>Class Summary</h2>
+    <p>The <code>VLUNWorkflow</code> class manages export (presentation) of volumes and volume sets to hosts or host sets. It also lists existing VLUNs and checks for existence.</p>
+    <h3 style="margin-top:28px">Methods Overview</h3>
+    <table>
+      <thead><tr><th>Method</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#export_volume_to_host">export_volume_to_host</a></td><td>Export a single volume to a host.</td></tr>
+        <tr><td><a href="#unexport_volume_from_host">unexport_volume_from_host</a></td><td>Remove a volume-host VLUN.</td></tr>
+        <tr><td><a href="#export_volume_to_hostset">export_volume_to_hostset</a></td><td>Export a volume to a host set.</td></tr>
+        <tr><td><a href="#unexport_volume_from_hostset">unexport_volume_from_hostset</a></td><td>Remove a volume-host set VLUN.</td></tr>
+        <tr><td><a href="#export_volumeset_to_host">export_volumeset_to_host</a></td><td>Export a volume set to a host.</td></tr>
+        <tr><td><a href="#unexport_volumeset_from_host">unexport_volumeset_from_host</a></td><td>Remove a volume set-host VLUN.</td></tr>
+        <tr><td><a href="#export_volumeset_to_hostset">export_volumeset_to_hostset</a></td><td>Export a volume set to a host set.</td></tr>
+        <tr><td><a href="#unexport_volumeset_from_hostset">unexport_volumeset_from_hostset</a></td><td>Remove a volume set-host set VLUN.</td></tr>
+        <tr><td><a href="#vlun_exists">vlun_exists</a></td><td>Check if a matching VLUN exists.</td></tr>
+        <tr><td><a href="#list_vluns">list_vluns</a></td><td>List all VLUN mappings.</td></tr>
+        <tr><td><a href="#get_vvsets">get_vvsets</a></td><td>Retrieve a volume set's details.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="method" id="export_volume_to_host">
+    <h2>export_volume_to_host <span class="badge">POST</span></h2>
+    <div class="signature">export_volume_to_host(payload)</div>
+    <p>Export a volume to a host with specified LUN and optional port placement.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>payload</td><td>dict</td><td>Yes</td><td>Fields: volumeName, hostName, lun, portPos (optional), autolun flag, etc.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Export creation response.</p>
+    <p><strong>Endpoint:</strong> <span class="code">POST /vluns</span></p>
+  </section>
+
+  <section class="method" id="unexport_volume_from_host">
+    <h2>unexport_volume_from_host <span class="badge">DELETE</span></h2>
+    <div class="signature">unexport_volume_from_host(vlun_id)</div>
+    <p>Remove a VLUN export from a host.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>vlun_id</td><td>str|int</td><td>Yes</td><td>Identifier of VLUN mapping.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict | None - Deletion response or None.</p>
+    <p><strong>Endpoint:</strong> <span class="code">DELETE /vluns/{vlun_id}</span></p>
+  </section>
+
+  <section class="method" id="export_volume_to_hostset">
+    <h2>export_volume_to_hostset <span class="badge">POST</span></h2>
+    <div class="signature">export_volume_to_hostset(payload)</div>
+    <p>Export a volume to a host set.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>payload</td><td>dict</td><td>Yes</td><td>Fields: volumeName, hostSetName, lun, portPos (optional), autolun flag.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Export creation response.</p>
+    <p><strong>Endpoint:</strong> <span class="code">POST /vluns</span></p>
+  </section>
+
+  <section class="method" id="unexport_volume_from_hostset">
+    <h2>unexport_volume_from_hostset <span class="badge">DELETE</span></h2>
+    <div class="signature">unexport_volume_from_hostset(vlun_id)</div>
+    <p>Remove a VLUN export from a host set.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>vlun_id</td><td>str|int</td><td>Yes</td><td>Identifier of VLUN mapping.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict | None.</p>
+    <p><strong>Endpoint:</strong> <span class="code">DELETE /vluns/{vlun_id}</span></p>
+  </section>
+
+  <section class="method" id="export_volumeset_to_host">
+    <h2>export_volumeset_to_host <span class="badge">POST</span></h2>
+    <div class="signature">export_volumeset_to_host(payload)</div>
+    <p>Export a volume set to a host.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>payload</td><td>dict</td><td>Yes</td><td>Fields: volumeSetName, hostName, lun (optional), portPos.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict.</p>
+    <p><strong>Endpoint:</strong> <span class="code">POST /vluns</span></p>
+  </section>
+
+  <section class="method" id="unexport_volumeset_from_host">
+    <h2>unexport_volumeset_from_host <span class="badge">DELETE</span></h2>
+    <div class="signature">unexport_volumeset_from_host(vlun_id)</div>
+    <p>Remove a volume set export from a host.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>vlun_id</td><td>str|int</td><td>Yes</td><td>Identifier of export mapping.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict | None.</p>
+    <p><strong>Endpoint:</strong> <span class="code">DELETE /vluns/{vlun_id}</span></p>
+  </section>
+
+  <section class="method" id="export_volumeset_to_hostset">
+    <h2>export_volumeset_to_hostset <span class="badge">POST</span></h2>
+    <div class="signature">export_volumeset_to_hostset(payload)</div>
+    <p>Export a volume set to a host set.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>payload</td><td>dict</td><td>Yes</td><td>Fields: volumeSetName, hostSetName, lun (optional), portPos.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict.</p>
+    <p><strong>Endpoint:</strong> <span class="code">POST /vluns</span></p>
+  </section>
+
+  <section class="method" id="unexport_volumeset_from_hostset">
+    <h2>unexport_volumeset_from_hostset <span class="badge">DELETE</span></h2>
+    <div class="signature">unexport_volumeset_from_hostset(vlun_id)</div>
+    <p>Remove a volume set export from a host set.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>vlun_id</td><td>str|int</td><td>Yes</td><td>Identifier of export mapping.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict | None.</p>
+    <p><strong>Endpoint:</strong> <span class="code">DELETE /vluns/{vlun_id}</span></p>
+  </section>
+
+  <section class="method" id="vlun_exists">
+    <h2>vlun_exists <span class="badge">GET</span></h2>
+    <div class="signature">vlun_exists(volume_name, lun, host_name=None, port_pos=None)</div>
+    <p>Check whether a VLUN mapping exists matching criteria.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>volume_name</td><td>str</td><td>Yes</td><td>Volume name.</td></tr>
+      <tr><td>lun</td><td>int</td><td>Yes</td><td>LUN number.</td></tr>
+      <tr><td>host_name</td><td>str</td><td>No</td><td>Filter by host name.</td></tr>
+      <tr><td>port_pos</td><td>str</td><td>No</td><td>Filter by port position identifier.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> bool - True if a matching VLUN exists.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /vluns</span> (client-side filtering)</p>
+  </section>
+
+  <section class="method" id="list_vluns">
+    <h2>list_vluns <span class="badge">GET</span></h2>
+    <div class="signature">list_vluns()</div>
+    <p>List all VLUN mappings.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>-</td><td>-</td><td>-</td><td>No parameters.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> list[dict] - VLUN entries.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /vluns</span></p>
+  </section>
+
+  <section class="method" id="get_vvsets">
+    <h2>get_vvsets <span class="badge">GET</span></h2>
+    <div class="signature">get_vvsets(volume_set_name)</div>
+    <p>Retrieve details of a volume set (used in export context).</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>volume_set_name</td><td>str</td><td>Yes</td><td>Name of the volume set.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Volume set details.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /volumesets/{volume_set_name}</span></p>
+  </section>
+</main>
+<footer>&copy; 2025 Hewlett Packard Enterprise. All rights reserved.</footer>
+</body>
+</html>
