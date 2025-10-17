@@ -1,7 +1,34 @@
 site_name: HPE Storage Flowkit
-theme: readthedocs
+theme:
+  name: readthedocs
 nav:
-  - Home: [index.html]
-  - API Reference: [api_reference.html]
+  - Home: index.md
+  - API Reference: api_reference.html
   - Workflows:
-    - CPG: [cpg.html]
+    - CPGWorkflow: api/cpg.html
+    - VolumeWorkflow: api/volume.html
+    - SnapshotWorkflow: api/snapshot.html
+    - CloneWorkflow: api/clone.html
+    - VLUNWorkflow: api/vlun.html
+    - HostWorkflow: api/host.html
+    - HostSetWorkflow: api/hostset.html
+    - VolumeSetWorkflow: api/volumeset.html
+    - QOSWorkflow: api/qos.html
+    - RemoteCopyGroupWorkflow: api/remote_copy_group.html
+    - SystemWorkflow: api/system.html
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-org/your-repo
+
+extra_css:
+  - css/custom.css
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - footnotes
+  - def_list
