@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>VLUNWorkflow - HPE Storage Flowkit</title>
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../css/custom.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "VLUNWorkflow";
+    var mkdocs_page_input_path = "api/vlun.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> HPE Storage Flowkit</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api_reference/">API Reference</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Workflows</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../cpg/">CPGWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../volume/">VolumeWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../snapshot/">SnapshotWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../clone/">CloneWorkflow</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">VLUNWorkflow</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#methods-overview">Methods Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#common-parameters">Common Parameters</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../host/">HostWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../hostset/">HostSetWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../volumeset/">VolumeSetWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../qos/">QOSWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../remote_copy_group/">RemoteCopyGroupWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../system/">SystemWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../schedule/">Schedule Operations</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">HPE Storage Flowkit</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Workflows &raquo;</li>
+        
+      
+    
+    <li>VLUNWorkflow</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="vlunworkflow">VLUNWorkflow<a class="headerlink" href="#vlunworkflow" title="Permanent link">&para;</a></h1>
+<p>Export / unexport volumes and volume sets to hosts and host sets (Virtual LUN mappings). Supports optional manual LUN assignment and port targeting.</p>
+<h2 id="methods-overview">Methods Overview<a class="headerlink" href="#methods-overview" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>export_volume_to_host(volume_name, host_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
+<td>Export volume to a host.</td>
+</tr>
+<tr>
+<td><code>unexport_volume_from_host(volume_name, host_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
+<td>Remove host export.</td>
+</tr>
+<tr>
+<td><code>export_volume_to_hostset(volume_name, host_set_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
+<td>Export volume to host set.</td>
+</tr>
+<tr>
+<td><code>unexport_volume_from_hostset(volume_name, host_set_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
+<td>Remove host set export.</td>
+</tr>
+<tr>
+<td><code>export_volumeset_to_host(volume_set_name, host_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
+<td>Export volume set to host.</td>
+</tr>
+<tr>
+<td><code>unexport_volumeset_from_host(volume_set_name, host_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
+<td>Remove export of set from host.</td>
+</tr>
+<tr>
+<td><code>export_volumeset_to_hostset(volume_set_name, host_set_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
+<td>Export volume set to host set.</td>
+</tr>
+<tr>
+<td><code>unexport_volumeset_from_hostset(volume_set_name, host_set_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
+<td>Remove set export from host set.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="common-parameters">Common Parameters<a class="headerlink" href="#common-parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>volume_name / volume_set_name</td>
+<td>str</td>
+<td>Volume or volume set being exported.</td>
+</tr>
+<tr>
+<td>host_name / host_set_name</td>
+<td>str</td>
+<td>Target host or host set.</td>
+</tr>
+<tr>
+<td>lun</td>
+<td>int</td>
+<td>Explicit LUN number (omit if <code>autolun=True</code>).</td>
+</tr>
+<tr>
+<td>node_val, slot, card_port</td>
+<td>int</td>
+<td>Port addressing components (implementation maps to physical port).</td>
+</tr>
+<tr>
+<td>autolun</td>
+<td>bool</td>
+<td>If True, array assigns next available LUN.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preprocessing:</strong> <code>build_payload</code> assembles export payload, <code>find_vlun</code> checks for existing mappings for idempotence, validates host/volume existence and ensures no duplicate LUN conflict.</p>
+<p><strong>Returns:</strong> dict - Mapping result (or indication of existing mapping for idempotence). Unexport operations return confirmation or no-op.</p>
+<hr />
+<p>© 2025 Hewlett Packard Enterprise. All rights reserved.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../host/" class="btn btn-neutral float-right" title="HostWorkflow">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../clone/" class="btn btn-neutral" title="CloneWorkflow"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../clone/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../host/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

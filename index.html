@@ -65,32 +65,34 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/">API Reference</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Workflows</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="api/cpg.html">CPGWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/cpg/">CPGWorkflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api/volume.html">VolumeWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/volume/">VolumeWorkflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api/snapshot.html">SnapshotWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/snapshot/">SnapshotWorkflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api/clone.html">CloneWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/clone/">CloneWorkflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api/vlun.html">VLUNWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/vlun/">VLUNWorkflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api/host.html">HostWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/host/">HostWorkflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api/hostset.html">HostSetWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/hostset/">HostSetWorkflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api/volumeset.html">VolumeSetWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/volumeset/">VolumeSetWorkflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api/qos.html">QOSWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/qos/">QOSWorkflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api/remote_copy_group.html">RemoteCopyGroupWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/remote_copy_group/">RemoteCopyGroupWorkflow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api/system.html">SystemWorkflow</a>
+                    <li class="toctree-l1"><a class="reference internal" href="api/system/">SystemWorkflow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/schedule/">Schedule Operations</a>
                     </li>
                 </ul>
       </div>
@@ -159,9 +161,9 @@ volumes = VolumeWorkflow(sm)
 volumes.create_volume(&quot;demo_vol&quot;, {&quot;cpg&quot;: &quot;FC_r5&quot;, &quot;sizeMiB&quot;: 10240})
 </code></pre>
 <h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h2>
-<p>Access full method signatures, parameters, return types, and REST mappings:</p>
+<p>Access full method signatures, parameters, return types, and REST/SSH mappings:</p>
 <ul>
-<li><strong><a href="api_reference.html">API Reference</a></strong> lists all workflows.</li>
+<li><strong><a href="api_reference/">API Reference</a></strong> lists all workflows and preprocessing notes.</li>
 </ul>
 <h2 id="workflows-at-a-glance">Workflows At A Glance<a class="headerlink" href="#workflows-at-a-glance" title="Permanent link">&para;</a></h2>
 <table>
@@ -176,57 +178,62 @@ volumes.create_volume(&quot;demo_vol&quot;, {&quot;cpg&quot;: &quot;FC_r5&quot;,
 <tr>
 <td>CPGWorkflow</td>
 <td>Manage Common Provisioning Groups.</td>
-<td><a href="api/cpg.html">Open</a></td>
+<td><a href="api/cpg/">Open</a></td>
 </tr>
 <tr>
 <td>VolumeWorkflow</td>
 <td>CRUD, growth, tuning of volumes.</td>
-<td><a href="api/volume.html">Open</a></td>
+<td><a href="api/volume/">Open</a></td>
 </tr>
 <tr>
 <td>SnapshotWorkflow</td>
 <td>Create / promote / delete snapshots.</td>
-<td><a href="api/snapshot.html">Open</a></td>
+<td><a href="api/snapshot/">Open</a></td>
 </tr>
 <tr>
 <td>CloneWorkflow</td>
 <td>Physical copy operations.</td>
-<td><a href="api/clone.html">Open</a></td>
+<td><a href="api/clone/">Open</a></td>
 </tr>
 <tr>
 <td>VLUNWorkflow</td>
 <td>Export volumes/sets to hosts/host sets.</td>
-<td><a href="api/vlun.html">Open</a></td>
+<td><a href="api/vlun/">Open</a></td>
 </tr>
 <tr>
 <td>HostWorkflow</td>
 <td>Host lifecycle &amp; initiator management.</td>
-<td><a href="api/host.html">Open</a></td>
+<td><a href="api/host/">Open</a></td>
 </tr>
 <tr>
 <td>HostSetWorkflow</td>
 <td>Group hosts for shared operations.</td>
-<td><a href="api/hostset.html">Open</a></td>
+<td><a href="api/hostset/">Open</a></td>
 </tr>
 <tr>
 <td>VolumeSetWorkflow</td>
 <td>Group volumes for policy/export.</td>
-<td><a href="api/volumeset.html">Open</a></td>
+<td><a href="api/volumeset/">Open</a></td>
 </tr>
 <tr>
 <td>QOSWorkflow</td>
 <td>Define and manage QoS policies.</td>
-<td><a href="api/qos.html">Open</a></td>
+<td><a href="api/qos/">Open</a></td>
 </tr>
 <tr>
 <td>RemoteCopyGroupWorkflow</td>
 <td>Remote replication group control.</td>
-<td><a href="api/remote_copy_group.html">Open</a></td>
+<td><a href="api/remote_copy_group/">Open</a></td>
 </tr>
 <tr>
 <td>SystemWorkflow</td>
 <td>System metadata retrieval.</td>
-<td><a href="api/system.html">Open</a></td>
+<td><a href="api/system/">Open</a></td>
+</tr>
+<tr>
+<td>Schedule Operations</td>
+<td>Snapshot schedule lifecycle (create/modify/suspend/resume).</td>
+<td><a href="api/schedule/">Open</a></td>
 </tr>
 </tbody>
 </table>
@@ -247,7 +254,7 @@ volumes.create_volume(&quot;demo_vol&quot;, {&quot;cpg&quot;: &quot;FC_r5&quot;,
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="api_reference.html" class="btn btn-neutral float-right" title="API Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="api_reference/" class="btn btn-neutral float-right" title="API Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -275,7 +282,7 @@ volumes.create_volume(&quot;demo_vol&quot;, {&quot;cpg&quot;: &quot;FC_r5&quot;,
       
       
       
-        <span style="margin-left: 15px"><a href="api_reference.html" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="api_reference/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
@@ -293,5 +300,5 @@ volumes.create_volume(&quot;demo_vol&quot;, {&quot;cpg&quot;: &quot;FC_r5&quot;,
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2025-10-17 12:59:30.264722+00:00
+Build Date UTC : 2025-10-17 16:20:06.583028+00:00
 -->
