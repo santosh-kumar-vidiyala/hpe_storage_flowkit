@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>RemoteCopyGroupWorkflow API Reference</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;color:#222;line-height:1.45}
+header{background:#063970;color:#fff;padding:24px 40px}
+header h1{margin:0;font-size:1.8rem}
+nav{background:#f5f7fa;padding:12px 40px;border-bottom:1px solid #d8dde6}
+nav a{margin-right:16px;color:#063970;text-decoration:none;font-weight:600}
+main{padding:32px 40px;max-width:1100px}
+.method{margin-bottom:42px}
+.method h2{margin:0 0 6px;font-size:1.25rem;color:#063970}
+.signature{font-family:monospace;font-size:.95rem}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin-top:10px}
+th,td{border:1px solid #d8dde6;padding:8px;font-size:.85rem;text-align:left;vertical-align:top}
+th{background:#f0f4f9}
+.badge{display:inline-block;background:#063970;color:#fff;padding:2px 6px;font-size:.65rem;border-radius:3px;margin-left:6px;letter-spacing:.5px}
+.code{font-family:monospace;background:#eef2f7;padding:2px 4px;border-radius:3px}
+footer{margin-top:60px;background:#f5f7fa;padding:20px 40px;font-size:.8rem;color:#555;border-top:1px solid #e2e6ea}
+</style>
+</head>
+<body>
+<header>
+  <h1>RemoteCopyGroupWorkflow</h1>
+  <p style="margin:4px 0 0;font-weight:300">Remote copy group replication operations.</p>
+</header>
+<nav>
+  <a href="../api_reference.html">API Reference</a>
+  <a href="../index.html">Home</a>
+</nav>
+<main>
+  <section>
+    <h2>Class Summary</h2>
+    <p>The <code>RemoteCopyGroupWorkflow</code> class manages asynchronous/synchronous replication groups, including lifecycle (start/stop/sync), volume admission/removal, and target/link management (REST + SSH CLI commands).</p>
+    <h3 style="margin-top:28px">Methods Overview</h3>
+    <table>
+      <thead><tr><th>Method</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#create_remote_copy_group">create_remote_copy_group</a></td><td>Create a remote copy group.</td></tr>
+        <tr><td><a href="#delete_remote_copy_group">delete_remote_copy_group</a></td><td>Delete a remote copy group.</td></tr>
+        <tr><td><a href="#modify_remote_copy_group">modify_remote_copy_group</a></td><td>Modify group attributes.</td></tr>
+        <tr><td><a href="#get_remote_copy_group">get_remote_copy_group</a></td><td>Get group details.</td></tr>
+        <tr><td><a href="#get_remote_copy_groups">get_remote_copy_groups</a></td><td>List remote copy groups.</td></tr>
+        <tr><td><a href="#remote_copy_group_exists">remote_copy_group_exists</a></td><td>Check existence.</td></tr>
+        <tr><td><a href="#add_volume_to_remote_copy_group">add_volume_to_remote_copy_group</a></td><td>Add volume to group.</td></tr>
+        <tr><td><a href="#remove_volume_from_remote_copy_group">remove_volume_from_remote_copy_group</a></td><td>Remove volume from group.</td></tr>
+        <tr><td><a href="#get_remote_copy_group_volume_info">get_remote_copy_group_volume_info</a></td><td>Get volume replication info.</td></tr>
+        <tr><td><a href="#start_remote_copy_group">start_remote_copy_group</a></td><td>Start replication.</td></tr>
+        <tr><td><a href="#stop_remote_copy_group">stop_remote_copy_group</a></td><td>Stop replication.</td></tr>
+        <tr><td><a href="#synchronize_remote_copy_group">synchronize_remote_copy_group</a></td><td>Synchronize group.</td></tr>
+        <tr><td><a href="#admit_remote_copy_links">admit_remote_copy_links</a></td><td>Admit remote copy link (CLI).</td></tr>
+        <tr><td><a href="#dismiss_remote_copy_links">dismiss_remote_copy_links</a></td><td>Dismiss remote copy link (CLI).</td></tr>
+        <tr><td><a href="#get_rcopy_links">get_rcopy_links</a></td><td>Show remote copy links (CLI).</td></tr>
+        <tr><td><a href="#admit_remote_copy_target">admit_remote_copy_target</a></td><td>Admit remote copy target (CLI).</td></tr>
+        <tr><td><a href="#dismiss_remote_copy_target">dismiss_remote_copy_target</a></td><td>Dismiss remote copy target (CLI).</td></tr>
+        <tr><td><a href="#remote_copy_group_status">remote_copy_group_status</a></td><td>Get group status.</td></tr>
+        <tr><td><a href="#start_remote_copy_service">start_remote_copy_service</a></td><td>Start remote copy service (CLI).</td></tr>
+        <tr><td><a href="#show_remote_copy_service">show_remote_copy_service</a></td><td>Show remote copy service (CLI).</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="method" id="create_remote_copy_group">
+    <h2>create_remote_copy_group <span class="badge">POST</span></h2>
+    <div class="signature">create_remote_copy_group(remote_copy_group_name, remote_copy_targets, payload_params)</div>
+    <p>Create a remote copy group.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>remote_copy_targets</td><td>list[dict]</td><td>Yes</td><td>Replication targets configuration.</td></tr>
+      <tr><td>payload_params</td><td>dict</td><td>Yes</td><td>Additional parameters (e.g., userCPG, snapCPG, mode).</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Creation response.</p>
+    <p><strong>Endpoint:</strong> <span class="code">POST /remotecopygroups</span></p>
+  </section>
+
+  <section class="method" id="delete_remote_copy_group">
+    <h2>delete_remote_copy_group <span class="badge">DELETE</span></h2>
+    <div class="signature">delete_remote_copy_group(remote_copy_group_name, keep_snap=False)</div>
+    <p>Delete a remote copy group.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>keep_snap</td><td>bool</td><td>No</td><td>Retain resync snapshot if supported.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict | None.</p>
+    <p><strong>Endpoint:</strong> <span class="code">DELETE /remotecopygroups/{remote_copy_group_name}</span></p>
+  </section>
+
+  <section class="method" id="modify_remote_copy_group">
+    <h2>modify_remote_copy_group <span class="badge">PUT</span></h2>
+    <div class="signature">modify_remote_copy_group(remote_copy_group_name, payload)</div>
+    <p>Modify remote copy group attributes.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>payload</td><td>dict</td><td>Yes</td><td>Updated attributes (mode, targets modifications).</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict.</p>
+    <p><strong>Endpoint:</strong> <span class="code">PUT /remotecopygroups/{remote_copy_group_name}</span></p>
+  </section>
+
+  <section class="method" id="get_remote_copy_group">
+    <h2>get_remote_copy_group <span class="badge">GET</span></h2>
+    <div class="signature">get_remote_copy_group(remote_copy_group_name)</div>
+    <p>Retrieve remote copy group details.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Group details.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /remotecopygroups/{remote_copy_group_name}</span></p>
+  </section>
+
+  <section class="method" id="get_remote_copy_groups">
+    <h2>get_remote_copy_groups <span class="badge">GET</span></h2>
+    <div class="signature">get_remote_copy_groups()</div>
+    <p>List all remote copy groups.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>-</td><td>-</td><td>-</td><td>No parameters.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Response containing members list.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /remotecopygroups</span></p>
+  </section>
+
+  <section class="method" id="remote_copy_group_exists">
+    <h2>remote_copy_group_exists <span class="badge">GET</span></h2>
+    <div class="signature">remote_copy_group_exists(remote_copy_group_name)</div>
+    <p>Check if remote copy group exists.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> bool - True if exists.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /remotecopygroups/{remote_copy_group_name}</span></p>
+  </section>
+
+  <section class="method" id="add_volume_to_remote_copy_group">
+    <h2>add_volume_to_remote_copy_group <span class="badge">POST</span></h2>
+    <div class="signature">add_volume_to_remote_copy_group(remote_copy_group_name, volume_name, admit_volume_targets, payload_params)</div>
+    <p>Add a volume to a remote copy group.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>volume_name</td><td>str</td><td>Yes</td><td>Name of volume to add.</td></tr>
+      <tr><td>admit_volume_targets</td><td>list[dict]</td><td>Yes</td><td>Target specifications with pairing info.</td></tr>
+      <tr><td>payload_params</td><td>dict</td><td>Yes</td><td>Additional flags (skipInitialSync, snapshotName, etc.).</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict.</p>
+    <p><strong>Endpoint:</strong> <span class="code">POST /remotecopygroups/{remote_copy_group_name}/volumes</span></p>
+  </section>
+
+  <section class="method" id="remove_volume_from_remote_copy_group">
+    <h2>remove_volume_from_remote_copy_group <span class="badge">DELETE</span></h2>
+    <div class="signature">remove_volume_from_remote_copy_group(remote_copy_group_name, volume_name, option=None)</div>
+    <p>Remove a volume from a remote copy group.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>volume_name</td><td>str</td><td>Yes</td><td>Volume name.</td></tr>
+      <tr><td>option</td><td>str</td><td>No</td><td>Optional query flag (keepSnap, removeSecondaryVolume).</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict | None.</p>
+    <p><strong>Endpoint:</strong> <span class="code">DELETE /remotecopygroups/{remote_copy_group_name}/volumes/{volume_name}</span></p>
+  </section>
+
+  <section class="method" id="get_remote_copy_group_volume_info">
+    <h2>get_remote_copy_group_volume_info <span class="badge">GET</span></h2>
+    <div class="signature">get_remote_copy_group_volume_info(remote_copy_group_name, volume_name)</div>
+    <p>Retrieve replication info for a specific volume in group.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>volume_name</td><td>str</td><td>Yes</td><td>Volume name.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /remotecopygroups/{remote_copy_group_name}/volumes/{volume_name}</span></p>
+  </section>
+
+  <section class="method" id="start_remote_copy_group">
+    <h2>start_remote_copy_group <span class="badge">PUT</span></h2>
+    <div class="signature">start_remote_copy_group(remote_copy_group_name, payload_params)</div>
+    <p>Start replication of a remote copy group (action=3).</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>payload_params</td><td>dict</td><td>Yes</td><td>Flags: skipInitialSync, targetName, startingSnapshots.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict.</p>
+    <p><strong>Endpoint:</strong> <span class="code">PUT /remotecopygroups/{remote_copy_group_name}</span> (action=3)</p>
+  </section>
+
+  <section class="method" id="stop_remote_copy_group">
+    <h2>stop_remote_copy_group <span class="badge">PUT</span></h2>
+    <div class="signature">stop_remote_copy_group(remote_copy_group_name, payload_params)</div>
+    <p>Stop replication of a remote copy group (action=4).</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>payload_params</td><td>dict</td><td>Yes</td><td>Flags: noSnapshot, targetName.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict.</p>
+    <p><strong>Endpoint:</strong> <span class="code">PUT /remotecopygroups/{remote_copy_group_name}</span> (action=4)</p>
+  </section>
+
+  <section class="method" id="synchronize_remote_copy_group">
+    <h2>synchronize_remote_copy_group <span class="badge">PUT</span></h2>
+    <div class="signature">synchronize_remote_copy_group(remote_copy_group_name, payload_params)</div>
+    <p>Synchronize a remote copy group (action=5).</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>payload_params</td><td>dict</td><td>Yes</td><td>Flags: noResyncSnapshot, targetName, fullSync.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict.</p>
+    <p><strong>Endpoint:</strong> <span class="code">PUT /remotecopygroups/{remote_copy_group_name}</span> (action=5)</p>
+  </section>
+
+  <section class="method" id="admit_remote_copy_links">
+    <h2>admit_remote_copy_links <span class="badge">SSH</span></h2>
+    <div class="signature">admit_remote_copy_links(target_name, source_target_port_pair)</div>
+    <p>Admit remote copy link via CLI.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>target_name</td><td>str</td><td>Yes</td><td>Target system name.</td></tr>
+      <tr><td>source_target_port_pair</td><td>str</td><td>Yes</td><td>Port pair specification.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> list[str] - CLI output lines.</p>
+    <p><strong>Command:</strong> <span class="code">admitrcopylink {target_name} {pair}</span></p>
+  </section>
+
+  <section class="method" id="dismiss_remote_copy_links">
+    <h2>dismiss_remote_copy_links <span class="badge">SSH</span></h2>
+    <div class="signature">dismiss_remote_copy_links(target_name, source_target_port_pair)</div>
+    <p>Dismiss remote copy link via CLI.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>target_name</td><td>str</td><td>Yes</td><td>Target system name.</td></tr>
+      <tr><td>source_target_port_pair</td><td>str</td><td>Yes</td><td>Port pair specification.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> list[str].</p>
+    <p><strong>Command:</strong> <span class="code">dismissrcopylink {target_name} {pair}</span></p>
+  </section>
+
+  <section class="method" id="get_rcopy_links">
+    <h2>get_rcopy_links <span class="badge">SSH</span></h2>
+    <div class="signature">get_rcopy_links()</div>
+    <p>Show remote copy links.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>-</td><td>-</td><td>-</td><td>No parameters.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> list[str].</p>
+    <p><strong>Command:</strong> <span class="code">showrcopy links</span></p>
+  </section>
+
+  <section class="method" id="admit_remote_copy_target">
+    <h2>admit_remote_copy_target <span class="badge">SSH</span></h2>
+    <div class="signature">admit_remote_copy_target(remote_copy_group_name, target_name, target_mode, source_target_volume_pair_list)</div>
+    <p>Admit target system to remote copy group via CLI.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>target_name</td><td>str</td><td>Yes</td><td>Target name.</td></tr>
+      <tr><td>target_mode</td><td>str</td><td>Yes</td><td>Replication mode (e.g., sync, async).</td></tr>
+      <tr><td>source_target_volume_pair_list</td><td>list[str]</td><td>Yes</td><td>Pairings of source:target volumes.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> list[str].</p>
+    <p><strong>Command:</strong> <span class="code">admitrcopytarget -f {target_name} {target_mode} {remote_copy_group_name} ...</span></p>
+  </section>
+
+  <section class="method" id="dismiss_remote_copy_target">
+    <h2>dismiss_remote_copy_target <span class="badge">SSH</span></h2>
+    <div class="signature">dismiss_remote_copy_target(remote_copy_group_name, target_name)</div>
+    <p>Dismiss target system from remote copy group.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+      <tr><td>target_name</td><td>str</td><td>Yes</td><td>Target name.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> list[str].</p>
+    <p><strong>Command:</strong> <span class="code">dismissrcopytarget -f {target_name} {remote_copy_group_name}</span></p>
+  </section>
+
+  <section class="method" id="remote_copy_group_status">
+    <h2>remote_copy_group_status <span class="badge">GET</span></h2>
+    <div class="signature">remote_copy_group_status(remote_copy_group_name)</div>
+    <p>Retrieve status details for a remote copy group.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>remote_copy_group_name</td><td>str</td><td>Yes</td><td>Group name.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /remotecopygroups/{remote_copy_group_name}</span></p>
+  </section>
+
+  <section class="method" id="start_remote_copy_service">
+    <h2>start_remote_copy_service <span class="badge">SSH</span></h2>
+    <div class="signature">start_remote_copy_service()</div>
+    <p>Start remote copy service globally via CLI.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>-</td><td>-</td><td>-</td><td>No parameters.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> list[str].</p>
+    <p><strong>Command:</strong> <span class="code">startrcopy</span></p>
+  </section>
+
+  <section class="method" id="show_remote_copy_service">
+    <h2>show_remote_copy_service <span class="badge">SSH</span></h2>
+    <div class="signature">show_remote_copy_service()</div>
+    <p>Show remote copy service status via CLI.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>-</td><td>-</td><td>-</td><td>No parameters.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> list[str].</p>
+    <p><strong>Command:</strong> <span class="code">showrcopy</span></p>
+  </section>
+
+  <section class="method">
+    <h2>get_rcopy_links <span class="badge">SSH</span></h2>
+    <div class="signature">get_rcopy_links()</div>
+    <p>Retrieve remote copy link information via CLI.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>-</td><td>-</td><td>-</td><td>No parameters.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> list[str].</p>
+    <p><strong>Command:</strong> <span class="code">showrcopy links</span></p>
+  </section>
+</main>
+<footer>&copy; 2025 Hewlett Packard Enterprise. All rights reserved.</footer>
+</body>
+</html>

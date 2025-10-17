@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>HPE Storage Flowkit - VolumeSetWorkflow API Reference</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;color:#222;line-height:1.45}
+header{background:#063970;color:#fff;padding:24px 40px}
+header h1{margin:0;font-size:1.8rem}
+nav{background:#f5f7fa;padding:12px 40px;border-bottom:1px solid #d8dde6}
+nav a{margin-right:16px;color:#063970;text-decoration:none;font-weight:600}
+main{padding:32px 40px;max-width:1100px}
+.method{margin-bottom:42px}
+.method h2{margin:0 0 6px;font-size:1.25rem;color:#063970}
+.signature{font-family:monospace;font-size:.95rem}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin-top:10px}
+th,td{border:1px solid #d8dde6;padding:8px;font-size:.85rem;text-align:left;vertical-align:top}
+th{background:#f0f4f9}
+.badge{display:inline-block;background:#063970;color:#fff;padding:2px 6px;font-size:.65rem;border-radius:3px;margin-left:6px;letter-spacing:.5px}
+.code{font-family:monospace;background:#eef2f7;padding:2px 4px;border-radius:3px}
+footer{margin-top:60px;background:#f5f7fa;padding:20px 40px;font-size:.8rem;color:#555;border-top:1px solid #e2e6ea}
+</style>
+</head>
+<body>
+<header>
+  <h1>HPE Storage Flowkit - VolumeSetWorkflow</h1>
+  <p style="margin:4px 0 0;font-weight:300">Operations for volume sets.</p>
+</header>
+<nav>
+  <a href="../api_reference.html">API Reference</a>
+  <a href="../index.html">Home</a>
+</nav>
+<main>
+  <section>
+    <h2>Class Summary</h2>
+    <p>The <code>VolumeSetWorkflow</code> class manages collections of volumes that can share policies and export operations. Provides CRUD and membership management.</p>
+    <h3 style="margin-top:28px">Methods Overview</h3>
+    <table>
+      <thead><tr><th>Method</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#create_volumeset">create_volumeset</a></td><td>Create a volume set.</td></tr>
+        <tr><td><a href="#delete_volumeset">delete_volumeset</a></td><td>Delete a volume set.</td></tr>
+        <tr><td><a href="#add_volumes_to_volumeset">add_volumes_to_volumeset</a></td><td>Add members to set.</td></tr>
+        <tr><td><a href="#remove_volumes_from_volumeset">remove_volumes_from_volumeset</a></td><td>Remove members from set.</td></tr>
+        <tr><td><a href="#get_volumeset">get_volumeset</a></td><td>Retrieve set details.</td></tr>
+        <tr><td><a href="#volumeset_exists">volumeset_exists</a></td><td>Check existence.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="method" id="create_volumeset">
+    <h2>create_volumeset <span class="badge">POST</span></h2>
+    <div class="signature">create_volumeset(name, payload_params)</div>
+    <p>Create a volume set.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>name</td><td>str</td><td>Yes</td><td>Volume set name.</td></tr>
+      <tr><td>payload_params</td><td>dict</td><td>Yes</td><td>Attributes (domain, setmembers).</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Creation response.</p>
+    <p><strong>Endpoint:</strong> <span class="code">POST /volumesets</span></p>
+  </section>
+
+  <section class="method" id="delete_volumeset">
+    <h2>delete_volumeset <span class="badge">DELETE</span></h2>
+    <div class="signature">delete_volumeset(name)</div>
+    <p>Delete a volume set.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>name</td><td>str</td><td>Yes</td><td>Volume set name.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict | None.</p>
+    <p><strong>Endpoint:</strong> <span class="code">DELETE /volumesets/{name}</span></p>
+  </section>
+
+  <section class="method" id="add_volumes_to_volumeset">
+    <h2>add_volumes_to_volumeset <span class="badge">PUT</span></h2>
+    <div class="signature">add_volumes_to_volumeset(name, setmembers)</div>
+    <p>Add volumes to a volume set.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>name</td><td>str</td><td>Yes</td><td>Volume set name.</td></tr>
+      <tr><td>setmembers</td><td>list[str]</td><td>Yes</td><td>Volume names to add.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Membership update response.</p>
+    <p><strong>Endpoint:</strong> <span class="code">PUT /volumesets/{name}</span> (action=1)</p>
+  </section>
+
+  <section class="method" id="remove_volumes_from_volumeset">
+    <h2>remove_volumes_from_volumeset <span class="badge">PUT</span></h2>
+    <div class="signature">remove_volumes_from_volumeset(name, setmembers)</div>
+    <p>Remove volumes from a volume set.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>name</td><td>str</td><td>Yes</td><td>Volume set name.</td></tr>
+      <tr><td>setmembers</td><td>list[str]</td><td>Yes</td><td>Volume names to remove.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict.</p>
+    <p><strong>Endpoint:</strong> <span class="code">PUT /volumesets/{name}</span> (action=2)</p>
+  </section>
+
+  <section class="method" id="get_volumeset">
+    <h2>get_volumeset <span class="badge">GET</span></h2>
+    <div class="signature">get_volumeset(name)</div>
+    <p>Retrieve volume set details.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>name</td><td>str</td><td>Yes</td><td>Volume set name.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Volume set details.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /volumesets/{name}</span></p>
+  </section>
+
+  <section class="method" id="volumeset_exists">
+    <h2>volumeset_exists <span class="badge">GET</span></h2>
+    <div class="signature">volumeset_exists(name)</div>
+    <p>Check whether the volume set exists.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>name</td><td>str</td><td>Yes</td><td>Volume set name.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> bool - True if exists.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /volumesets/{name}</span></p>
+  </section>
+</main>
+<footer>&copy; 2025 Hewlett Packard Enterprise. All rights reserved.</footer>
+</body>
+</html>

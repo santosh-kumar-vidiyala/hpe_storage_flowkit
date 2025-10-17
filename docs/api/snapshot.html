@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>SnapshotWorkflow API Reference</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;color:#222;line-height:1.45}
+header{background:#063970;color:#fff;padding:24px 40px}
+header h1{margin:0;font-size:1.8rem}
+nav{background:#f5f7fa;padding:12px 40px;border-bottom:1px solid #d8dde6}
+nav a{margin-right:16px;color:#063970;text-decoration:none;font-weight:600}
+main{padding:32px 40px;max-width:1100px}
+.method{margin-bottom:42px}
+.method h2{margin:0 0 6px;font-size:1.25rem;color:#063970}
+.signature{font-family:monospace;font-size:.95rem}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin-top:10px}
+th,td{border:1px solid #d8dde6;padding:8px;font-size:.85rem;text-align:left;vertical-align:top}
+th{background:#f0f4f9}
+.badge{display:inline-block;background:#063970;color:#fff;padding:2px 6px;font-size:.65rem;border-radius:3px;margin-left:6px;letter-spacing:.5px}
+.code{font-family:monospace;background:#eef2f7;padding:2px 4px;border-radius:3px}
+footer{margin-top:60px;background:#f5f7fa;padding:20px 40px;font-size:.8rem;color:#555;border-top:1px solid #e2e6ea}
+</style>
+</head>
+<body>
+<header>
+  <h1>SnapshotWorkflow</h1>
+  <p style="margin:4px 0 0;font-weight:300">Operations for virtual copy snapshots.</p>
+</header>
+<nav>
+  <a href="../api_reference.html">API Reference</a>
+  <a href="../index.html">Home</a>
+</nav>
+<main>
+  <section>
+    <h2>Class Summary</h2>
+    <p>The <code>SnapshotWorkflow</code> class manages snapshot lifecycle operations including creation, promotion (restore), retrieval, listing and deletion. REST endpoints are under <code>/volumes</code>, treating snapshots as thin-provisioned virtual volumes.</p>
+    <h3 style="margin-top:28px">Methods Overview</h3>
+    <table>
+      <thead><tr><th>Method</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#create_snapshot">create_snapshot</a></td><td>Create a snapshot of a base volume.</td></tr>
+        <tr><td><a href="#promoteVirtualCopy">promoteVirtualCopy</a></td><td>Promote (restore) a snapshot to overwrite its parent.</td></tr>
+        <tr><td><a href="#get_snapshot">get_snapshot</a></td><td>Get details of a snapshot.</td></tr>
+        <tr><td><a href="#list_snapshots">list_snapshots</a></td><td>List all snapshots.</td></tr>
+        <tr><td><a href="#delete_snapshot">delete_snapshot</a></td><td>Delete a snapshot.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="method" id="create_snapshot">
+    <h2>create_snapshot <span class="badge">POST</span></h2>
+    <div class="signature">create_snapshot(volume_name, snapshot_name, optional=None)</div>
+    <p>Create a snapshot of a base volume.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>volume_name</td><td>str</td><td>Yes</td><td>Name of the source volume.</td></tr>
+      <tr><td>snapshot_name</td><td>str</td><td>Yes</td><td>Name for the new snapshot.</td></tr>
+      <tr><td>optional</td><td>dict</td><td>No</td><td>Additional snapshot creation parameters.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Snapshot creation response.</p>
+    <p><strong>Endpoint:</strong> <span class="code">POST /volumes/{volume_name}</span> (action=createSnapshot)</p>
+  </section>
+
+  <section class="method" id="promoteVirtualCopy">
+    <h2>promoteVirtualCopy <span class="badge">PUT</span></h2>
+    <div class="signature">promoteVirtualCopy(name, params)</div>
+    <p>Promote (restore) a snapshot to replace its parent volume.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>name</td><td>str</td><td>Yes</td><td>Name of the snapshot to promote.</td></tr>
+      <tr><td>params</td><td>dict</td><td>No</td><td>Optional promotion parameters (e.g., retry flags).</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Promotion operation result.</p>
+    <p><strong>Endpoint:</strong> <span class="code">PUT /volumes/{name}</span> (action=promoteVirtualCopy)</p>
+  </section>
+
+  <section class="method" id="get_snapshot">
+    <h2>get_snapshot <span class="badge">GET</span></h2>
+    <div class="signature">get_snapshot(snapshot_name)</div>
+    <p>Retrieve snapshot details.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>snapshot_name</td><td>str</td><td>Yes</td><td>Name of the snapshot.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Snapshot details.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /volumes/{snapshot_name}</span></p>
+  </section>
+
+  <section class="method" id="list_snapshots">
+    <h2>list_snapshots <span class="badge">GET</span></h2>
+    <div class="signature">list_snapshots()</div>
+    <p>List all snapshots.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>-</td><td>-</td><td>-</td><td>No parameters.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> list[dict] - Snapshot summaries.</p>
+    <p><strong>Endpoint:</strong> <span class="code">GET /volumes</span></p>
+  </section>
+
+  <section class="method" id="delete_snapshot">
+    <h2>delete_snapshot <span class="badge">DELETE</span></h2>
+    <div class="signature">delete_snapshot(snapshot_name)</div>
+    <p>Delete a snapshot.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>snapshot_name</td><td>str</td><td>Yes</td><td>Name of the snapshot.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict | None - Deletion response or None.</p>
+    <p><strong>Endpoint:</strong> <span class="code">DELETE /volumes/{snapshot_name}</span></p>
+  </section>
+</main>
+<footer>&copy; 2025 Hewlett Packard Enterprise. All rights reserved.</footer>
+</body>
+</html>

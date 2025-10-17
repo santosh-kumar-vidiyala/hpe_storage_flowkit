@@ -1,2 +1,7 @@
-site_name: My Docs
+site_name: HPE Storage Flowkit
 theme: readthedocs
+nav:
+  - Home: [index.html]
+  - API Reference: [api_reference.html]
+  - Workflows:
+    - CPG: [cpg.html]

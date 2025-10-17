@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>HPE Storage FlowKit Documentation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;line-height:1.5;color:#222}
+header{background:#0b3d91;color:#fff;padding:24px 40px}
+header h1{margin:0;font-size:2rem}
+nav{background:#f5f7fa;padding:12px 40px;border-bottom:1px solid #d8dde6}
+nav a{margin-right:20px;color:#0b3d91;text-decoration:none;font-weight:600}
+main{padding:32px 40px;max-width:1000px}
+footer{margin-top:60px;background:#f5f7fa;padding:20px 40px;font-size:.8rem;color:#555;border-top:1px solid #e2e6ea}
+.section{margin-bottom:40px}
+.section h2{margin-top:0;border-bottom:2px solid #0b3d91;padding-bottom:6px}
+ul.workflows{columns:2;-webkit-columns:2;-moz-columns:2;list-style:none;padding:0}
+ul.workflows li{margin:4px 0}
+ul.workflows a{color:#0b3d91;text-decoration:none}
+ul.workflows a:hover{text-decoration:underline}
+.callout{background:#e8f1ff;border-left:4px solid #0b3d91;padding:16px;margin:24px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>HPE Storage FlowKit</h1>
+  <p style="margin:4px 0 0; font-size:1.05rem; font-weight:300;">Python SDK & Orchestrated Workflow Library for HPE Storage REST APIs</p>
+</header>
+<nav>
+  <a href="api_reference.html">API Reference</a>
+  <a href="https://github.com/" target="_blank" rel="noopener">Source Repository</a>
+</nav>
+<main>
+  <div class="section">
+    <h2>Overview</h2>
+    <p>HPE Storage FlowKit is a Python workflow-centric toolkit that simplifies interacting with HPE Storage arrays. It layers orchestration and idempotent behaviors over the raw REST API endpoints for objects such as volumes, snapshots, hosts, host sets, volume sets, VLUN exports, QoS policies, CPGs, and remote copy groups.</p>
+    <div class="callout">
+      <strong>Get Started:</strong> Use the <code>AnsibleClient</code> composite class or individual workflow classes for direct control. See <a href="api_reference.html">API Reference</a> for detailed method semantics and REST mappings.
+    </div>
+  </div>
+  <div class="section">
+    <h2>Workflows</h2>
+    <ul class="workflows">
+      <li><a href="api/cpg.html">CPGWorkflow</a></li>
+      <li><a href="api/volume.html">VolumeWorkflow</a></li>
+      <li><a href="api/snapshot.html">SnapshotWorkflow</a></li>
+      <li><a href="api/clone.html">CloneWorkflow</a></li>
+      <li><a href="api/vlun.html">VLUNWorkflow</a></li>
+      <li><a href="api/host.html">HostWorkflow</a></li>
+      <li><a href="api/hostset.html">HostSetWorkflow</a></li>
+      <li><a href="api/volumeset.html">VolumeSetWorkflow</a></li>
+      <li><a href="api/qos.html">QOSWorkflow</a></li>
+      <li><a href="api/remote_copy_group.html">RemoteCopyGroupWorkflow</a></li>
+      <li><a href="api/system.html">SystemWorkflow</a></li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>Composite Usage</h2>
+    <p>The <code>AnsibleClient</code> class inherits all workflows, exposing a unified surface area for automation frameworks. Each call performs minimal preprocessing then delegates to a workflow method that directly maps to a REST endpoint.</p>
+  </div>
+</main>
+<footer>
+  &copy; 2025 Hewlett Packard Enterprise. All rights reserved.
+</footer>
+</body>
+</html>

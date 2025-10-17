@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>CloneWorkflow API Reference</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;color:#222;line-height:1.45}
+header{background:#063970;color:#fff;padding:24px 40px}
+header h1{margin:0;font-size:1.8rem}
+nav{background:#f5f7fa;padding:12px 40px;border-bottom:1px solid #d8dde6}
+nav a{margin-right:16px;color:#063970;text-decoration:none;font-weight:600}
+main{padding:32px 40px;max-width:1100px}
+.method{margin-bottom:42px}
+.method h2{margin:0 0 6px;font-size:1.25rem;color:#063970}
+.signature{font-family:monospace;font-size:.95rem}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin-top:10px}
+th,td{border:1px solid #d8dde6;padding:8px;font-size:.85rem;text-align:left;vertical-align:top}
+th{background:#f0f4f9}
+.badge{display:inline-block;background:#063970;color:#fff;padding:2px 6px;font-size:.65rem;border-radius:3px;margin-left:6px;letter-spacing:.5px}
+.code{font-family:monospace;background:#eef2f7;padding:2px 4px;border-radius:3px}
+footer{margin-top:60px;background:#f5f7fa;padding:20px 40px;font-size:.8rem;color:#555;border-top:1px solid #e2e6ea}
+</style>
+</head>
+<body>
+<header>
+  <h1>CloneWorkflow</h1>
+  <p style="margin:4px 0 0;font-weight:300">Physical copy (clone) operations for volumes.</p>
+</header>
+<nav>
+  <a href="../api_reference.html">API Reference</a>
+  <a href="../index.html">Home</a>
+</nav>
+<main>
+  <section>
+    <h2>Class Summary</h2>
+    <p>The <code>CloneWorkflow</code> class provides operations for creating a physical copy (clone) of a volume and controlling its lifecycle including stopping or resynchronizing the copy.</p>
+    <h3 style="margin-top:28px">Methods Overview</h3>
+    <table>
+      <thead><tr><th>Method</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#copyVolume">copyVolume</a></td><td>Initiate a physical copy from a source volume.</td></tr>
+        <tr><td><a href="#stopOfflinePhysicalCopy">stopOfflinePhysicalCopy</a></td><td>Stop an offline physical copy operation.</td></tr>
+        <tr><td><a href="#resyncPhysicalCopy">resyncPhysicalCopy</a></td><td>Resynchronize a physical copy with its source.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="method" id="copyVolume">
+    <h2>copyVolume <span class="badge">POST</span></h2>
+    <div class="signature">copyVolume(src_name, info)</div>
+    <p>Initiate a physical copy from a source volume to a destination volume.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>src_name</td><td>str</td><td>Yes</td><td>Name of source volume.</td></tr>
+      <tr><td>info</td><td>dict</td><td>Yes</td><td>Payload including destination name and copy options.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Copy initiation response.</p>
+    <p><strong>Endpoint:</strong> <span class="code">POST /volumes/{src_name}</span></p>
+  </section>
+
+  <section class="method" id="stopOfflinePhysicalCopy">
+    <h2>stopOfflinePhysicalCopy <span class="badge">PUT</span></h2>
+    <div class="signature">stopOfflinePhysicalCopy(name, info)</div>
+    <p>Stop an ongoing offline physical copy operation.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>name</td><td>str</td><td>Yes</td><td>Name of the clone volume (or source context).</td></tr>
+      <tr><td>info</td><td>dict</td><td>Yes</td><td>Payload containing action stop code.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Stop operation result.</p>
+    <p><strong>Endpoint:</strong> <span class="code">PUT /volumes{name}</span></p>
+  </section>
+
+  <section class="method" id="resyncPhysicalCopy">
+    <h2>resyncPhysicalCopy <span class="badge">PUT</span></h2>
+    <div class="signature">resyncPhysicalCopy(volume_name, info)</div>
+    <p>Resynchronize a previously created physical copy.</p>
+    <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+      <tr><td>volume_name</td><td>str</td><td>Yes</td><td>Name of the clone volume.</td></tr>
+      <tr><td>info</td><td>dict</td><td>Yes</td><td>Payload with resync action code.</td></tr>
+    </tbody></table></div>
+    <p><strong>Returns:</strong> dict - Resync operation response.</p>
+    <p><strong>Endpoint:</strong> <span class="code">PUT /volumes/{volume_name}</span></p>
+  </section>
+</main>
+<footer>&copy; 2025 Hewlett Packard Enterprise. All rights reserved.</footer>
+</body>
+</html>
