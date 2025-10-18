@@ -80,20 +80,6 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Schedule Operations</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#methods-overview">Methods Overview</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#common-payload-keys-createschedule">Common Payload Keys (createSchedule)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#createschedule">createSchedule</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#modifyschedule">modifySchedule</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#suspendschedule-resumeschedule">suspendSchedule / resumeSchedule</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#deleteschedule">deleteSchedule</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a>
-    </li>
     </ul>
                     </li>
                 </ul>
@@ -135,94 +121,29 @@
               
                 <h1 id="schedule-operations">Schedule Operations<a class="headerlink" href="#schedule-operations" title="Permanent link">&para;</a></h1>
 <p>Snapshot schedule lifecycle utilities exposed directly on <code>AnsibleClient</code> (not a separate workflow class). These methods manage recurring snapshot tasks with retention and expiration policies.</p>
-<h2 id="methods-overview">Methods Overview<a class="headerlink" href="#methods-overview" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>scheduleExists(schedule_name)</code></td>
-<td>Check if schedule exists.</td>
-</tr>
-<tr>
-<td><code>createSchedule(schedule_name, taskfreq, payload)</code></td>
-<td>Create a new snapshot schedule.</td>
-</tr>
-<tr>
-<td><code>deleteSchedule(schedule_name)</code></td>
-<td>Delete an existing schedule.</td>
-</tr>
-<tr>
-<td><code>modifySchedule(name, new_name, task_freq)</code></td>
-<td>Modify schedule name and/or frequency.</td>
-</tr>
-<tr>
-<td><code>getSchedule(schedule_name)</code></td>
-<td>Retrieve schedule definition.</td>
-</tr>
-<tr>
-<td><code>getScheduleStatus(schedule_name)</code></td>
-<td>Retrieve current status/state.</td>
-</tr>
-<tr>
-<td><code>suspendSchedule(schedule_name)</code></td>
-<td>Suspend execution of schedule.</td>
-</tr>
-<tr>
-<td><code>resumeSchedule(schedule_name)</code></td>
-<td>Resume a suspended schedule.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="common-payload-keys-createschedule">Common Payload Keys (createSchedule)<a class="headerlink" href="#common-payload-keys-createschedule" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>read_only</td>
-<td>bool</td>
-<td>If True, snapshots created read-only.</td>
-</tr>
-<tr>
-<td>expiration_time</td>
-<td>int</td>
-<td>Time value before expiration.</td>
-</tr>
-<tr>
-<td>expiration_unit</td>
-<td>str</td>
-<td>Unit for expiration (e.g. <code>hours</code>, <code>days</code>). Converted internally to hours.</td>
-</tr>
-<tr>
-<td>retention_time</td>
-<td>int</td>
-<td>Time to retain before deletion.</td>
-</tr>
-<tr>
-<td>retention_unit</td>
-<td>str</td>
-<td>Unit for retention (e.g. <code>hours</code>, <code>days</code>). Converted internally to hours.</td>
-</tr>
-<tr>
-<td>base_volume_name</td>
-<td>str</td>
-<td>Source volume for scheduled snapshots.</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Methods Overview</strong>
+| Method | Purpose |
+|--------|---------|
+| <code>scheduleExists(schedule_name)</code> | Check if schedule exists. |
+| <code>createSchedule(schedule_name, taskfreq, payload)</code> | Create a new snapshot schedule. |
+| <code>deleteSchedule(schedule_name)</code> | Delete an existing schedule. |
+| <code>modifySchedule(name, new_name, task_freq)</code> | Modify schedule name and/or frequency. |
+| <code>getSchedule(schedule_name)</code> | Retrieve schedule definition. |
+| <code>getScheduleStatus(schedule_name)</code> | Retrieve current status/state. |
+| <code>suspendSchedule(schedule_name)</code> | Suspend execution of schedule. |
+| <code>resumeSchedule(schedule_name)</code> | Resume a suspended schedule. |</p>
+<p><strong>Common Payload Keys (createSchedule)</strong>
+| Key | Type | Description |
+|-----|------|-------------|
+| read_only | bool | If True, snapshots created read-only. |
+| expiration_time | int | Time value before expiration. |
+| expiration_unit | str | Unit for expiration (e.g. <code>hours</code>, <code>days</code>). Converted internally to hours. |
+| retention_time | int | Time to retain before deletion. |
+| retention_unit | str | Unit for retention (e.g. <code>hours</code>, <code>days</code>). Converted internally to hours. |
+| base_volume_name | str | Source volume for scheduled snapshots. |</p>
 <p><strong>Preprocessing:</strong> <code>preprocess_create_schedule(expiration_time, retention_time, expiration_unit, retention_unit)</code> converts units to hours and validates non-zero durations. If either duration resolves to 0 hours, creation aborts with an error (idempotent safeguard).</p>
-<h2 id="createschedule">createSchedule<a class="headerlink" href="#createschedule" title="Permanent link">&para;</a></h2>
-<p><strong>Signature:</strong> <code>createSchedule(schedule_name, taskfreq, payload)</code></p>
+<p><strong>createSchedule</strong>
+Signature: <code>createSchedule(schedule_name, taskfreq, payload)</code></p>
 <table>
 <thead>
 <tr>
@@ -254,8 +175,8 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> tuple <code>(changed, failed, message, data)</code> reflecting creation result.</p>
-<h2 id="modifyschedule">modifySchedule<a class="headerlink" href="#modifyschedule" title="Permanent link">&para;</a></h2>
-<p><strong>Signature:</strong> <code>modifySchedule(name, new_name, task_freq)</code></p>
+<p><strong>modifySchedule</strong>
+Signature: <code>modifySchedule(name, new_name, task_freq)</code></p>
 <table>
 <thead>
 <tr>
@@ -287,12 +208,12 @@
 </tbody>
 </table>
 <p><strong>Preprocessing:</strong> Builds <code>setsched</code> command options only for changed values; skips no-op modifications.</p>
-<h2 id="suspendschedule-resumeschedule">suspendSchedule / resumeSchedule<a class="headerlink" href="#suspendschedule-resumeschedule" title="Permanent link">&para;</a></h2>
-<p>Both validate existence (<code>scheduleExists</code>) before invoking underlying SSH command. Return tuple <code>(changed, failed, message, data)</code>; if absent, return <code>(False, False, "Schedule does not exist", {})</code>.</p>
-<h2 id="deleteschedule">deleteSchedule<a class="headerlink" href="#deleteschedule" title="Permanent link">&para;</a></h2>
-<p>Validates existence and issues force removal command. Returns deletion task result or no-op tuple if schedule absent.</p>
-<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
-<p>SSH command exceptions are caught and converted to message tuples; invalid preprocessing (zero retention/expiration) aborts early.</p>
+<p><strong>suspendSchedule / resumeSchedule</strong>
+Both validate existence (<code>scheduleExists</code>) before invoking underlying SSH command. Return tuple <code>(changed, failed, message, data)</code>; if absent, return <code>(False, False, "Schedule does not exist", {})</code>.</p>
+<p><strong>deleteSchedule</strong>
+Validates existence and issues force removal command. Returns deletion task result or no-op tuple if schedule absent.</p>
+<p><strong>Error Handling</strong>
+SSH command exceptions are caught and converted to message tuples; invalid preprocessing (zero retention/expiration) aborts early.</p>
 <hr />
 <p>© 2025 Hewlett Packard Enterprise. All rights reserved.</p>
               

@@ -70,12 +70,6 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">HostSetWorkflow</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#methods-overview">Methods Overview</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#create_hostset">create_hostset</a>
-    </li>
-        </ul>
-    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../volumeset/">VolumeSetWorkflow</a>
@@ -127,39 +121,16 @@
               
                 <h1 id="hostsetworkflow">HostSetWorkflow<a class="headerlink" href="#hostsetworkflow" title="Permanent link">&para;</a></h1>
 <p>Group hosts for shared exports and policy application.</p>
-<h2 id="methods-overview">Methods Overview<a class="headerlink" href="#methods-overview" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>create_hostset(name, domain=None, setmembers=None)</code></td>
-<td>Create host set.</td>
-</tr>
-<tr>
-<td><code>delete_hostset(name)</code></td>
-<td>Delete host set.</td>
-</tr>
-<tr>
-<td><code>add_hosts_to_hostset(name, setmembers)</code></td>
-<td>Add hosts.</td>
-</tr>
-<tr>
-<td><code>remove_hosts_from_hostset(name, setmembers)</code></td>
-<td>Remove hosts.</td>
-</tr>
-<tr>
-<td><code>get_hostset(name)</code></td>
-<td>Fetch host set details.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="create_hostset">create_hostset<a class="headerlink" href="#create_hostset" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>create_hostset(name, domain=None, setmembers=None)</code></p>
+<p><strong>Methods Overview</strong>
+| Method | Purpose |
+|--------|---------|
+| <code>create_hostset(name, domain=None, setmembers=None)</code> | Create host set. |
+| <code>delete_hostset(name)</code> | Delete host set. |
+| <code>add_hosts_to_hostset(name, setmembers)</code> | Add hosts. |
+| <code>remove_hosts_from_hostset(name, setmembers)</code> | Remove hosts. |
+| <code>get_hostset(name)</code> | Fetch host set details. |</p>
+<p><strong>create_hostset</strong>
+Signature: <code>create_hostset(name, domain=None, setmembers=None)</code></p>
 <table>
 <thead>
 <tr>

@@ -58,14 +58,6 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">CPGWorkflow</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#methods-overview">Methods Overview</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#create_cpg">create_cpg</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#delete_cpg">delete_cpg</a>
-    </li>
-        </ul>
-    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../volume/">VolumeWorkflow</a>
@@ -129,27 +121,13 @@
               
                 <h1 id="cpgworkflow">CPGWorkflow<a class="headerlink" href="#cpgworkflow" title="Permanent link">&para;</a></h1>
 <p>Manage Common Provisioning Groups (CPGs) which define underlying storage pool characteristics.</p>
-<h2 id="methods-overview">Methods Overview<a class="headerlink" href="#methods-overview" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>create_cpg(name, params)</code></td>
-<td>Create a new CPG.</td>
-</tr>
-<tr>
-<td><code>delete_cpg(name)</code></td>
-<td>Delete an existing CPG.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="create_cpg">create_cpg<a class="headerlink" href="#create_cpg" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>create_cpg(name, params)</code></p>
+<p><strong>Methods Overview</strong>
+| Method | Purpose |
+|--------|---------|
+| <code>create_cpg(name, params)</code> | Create a new CPG. |
+| <code>delete_cpg(name)</code> | Delete an existing CPG. |</p>
+<p><strong>create_cpg</strong>
+Signature: <code>create_cpg(name, params)</code></p>
 <table>
 <thead>
 <tr>
@@ -176,8 +154,8 @@
 </table>
 <p><strong>Preprocessing:</strong> <code>preprocess_create_cpg</code> validates RAID type, growth parameters, filters unsupported keys, ensures non-existence for idempotence.</p>
 <p><strong>Returns:</strong> dict - Created CPG.</p>
-<h3 id="delete_cpg">delete_cpg<a class="headerlink" href="#delete_cpg" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>delete_cpg(name)</code></p>
+<p><strong>delete_cpg</strong>
+Signature: <code>delete_cpg(name)</code></p>
 <table>
 <thead>
 <tr>

@@ -72,12 +72,6 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">VolumeSetWorkflow</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#methods-overview">Methods Overview</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#create_volumeset">create_volumeset</a>
-    </li>
-        </ul>
-    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../qos/">QOSWorkflow</a>
@@ -127,35 +121,15 @@
               
                 <h1 id="volumesetworkflow">VolumeSetWorkflow<a class="headerlink" href="#volumesetworkflow" title="Permanent link">&para;</a></h1>
 <p>Group volumes for policy management, exports and replication operations.</p>
-<h2 id="methods-overview">Methods Overview<a class="headerlink" href="#methods-overview" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>create_volumeset(name, domain=None, setmembers=None)</code></td>
-<td>Create volume set.</td>
-</tr>
-<tr>
-<td><code>delete_volumeset(name)</code></td>
-<td>Delete volume set.</td>
-</tr>
-<tr>
-<td><code>add_volumes_to_volumeset(name, setmembers)</code></td>
-<td>Add volumes.</td>
-</tr>
-<tr>
-<td><code>remove_volumes_from_volumeset(name, setmembers)</code></td>
-<td>Remove volumes.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="create_volumeset">create_volumeset<a class="headerlink" href="#create_volumeset" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>create_volumeset(name, domain=None, setmembers=None)</code></p>
+<p><strong>Methods Overview</strong>
+| Method | Purpose |
+|--------|---------|
+| <code>create_volumeset(name, domain=None, setmembers=None)</code> | Create volume set. |
+| <code>delete_volumeset(name)</code> | Delete volume set. |
+| <code>add_volumes_to_volumeset(name, setmembers)</code> | Add volumes. |
+| <code>remove_volumes_from_volumeset(name, setmembers)</code> | Remove volumes. |</p>
+<p><strong>create_volumeset</strong>
+Signature: <code>create_volumeset(name, domain=None, setmembers=None)</code></p>
 <table>
 <thead>
 <tr>

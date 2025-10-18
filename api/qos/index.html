@@ -74,13 +74,7 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">QOSWorkflow</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#methods-overview">Methods Overview</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#create_qos">create_qos</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#modify_qos-delete_qos-get_qos-list_qos">modify_qos / delete_qos / get_qos / list_qos</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#modify_qos-delete_qos-get_qos-list_qos">modify_qos / delete_qos / get_qos / list_qos</a>
     </li>
     </ul>
                     </li>
@@ -129,39 +123,16 @@
               
                 <h1 id="qosworkflow">QOSWorkflow<a class="headerlink" href="#qosworkflow" title="Permanent link">&para;</a></h1>
 <p>Define and manage Quality of Service (QoS) policies restricting I/O (bandwidth, IOPS) on volumes or sets.</p>
-<h2 id="methods-overview">Methods Overview<a class="headerlink" href="#methods-overview" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>create_qos(name, params)</code></td>
-<td>Create QoS rule.</td>
-</tr>
-<tr>
-<td><code>modify_qos(name, params)</code></td>
-<td>Modify QoS rule.</td>
-</tr>
-<tr>
-<td><code>delete_qos(name)</code></td>
-<td>Delete QoS rule.</td>
-</tr>
-<tr>
-<td><code>get_qos(name)</code></td>
-<td>Retrieve specific QoS.</td>
-</tr>
-<tr>
-<td><code>list_qos()</code></td>
-<td>List all QoS rules.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="create_qos">create_qos<a class="headerlink" href="#create_qos" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>create_qos(name, params)</code></p>
+<p><strong>Methods Overview</strong>
+| Method | Purpose |
+|--------|---------|
+| <code>create_qos(name, params)</code> | Create QoS rule. |
+| <code>modify_qos(name, params)</code> | Modify QoS rule. |
+| <code>delete_qos(name)</code> | Delete QoS rule. |
+| <code>get_qos(name)</code> | Retrieve specific QoS. |
+| <code>list_qos()</code> | List all QoS rules. |</p>
+<p><strong>create_qos</strong>
+Signature: <code>create_qos(name, params)</code></p>
 <table>
 <thead>
 <tr>

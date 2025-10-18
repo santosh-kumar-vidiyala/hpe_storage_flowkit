@@ -66,12 +66,6 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">VLUNWorkflow</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#methods-overview">Methods Overview</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#common-parameters">Common Parameters</a>
-    </li>
-        </ul>
-    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../host/">HostWorkflow</a>
@@ -127,86 +121,25 @@
               
                 <h1 id="vlunworkflow">VLUNWorkflow<a class="headerlink" href="#vlunworkflow" title="Permanent link">&para;</a></h1>
 <p>Export / unexport volumes and volume sets to hosts and host sets (Virtual LUN mappings). Supports optional manual LUN assignment and port targeting.</p>
-<h2 id="methods-overview">Methods Overview<a class="headerlink" href="#methods-overview" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>export_volume_to_host(volume_name, host_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
-<td>Export volume to a host.</td>
-</tr>
-<tr>
-<td><code>unexport_volume_from_host(volume_name, host_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
-<td>Remove host export.</td>
-</tr>
-<tr>
-<td><code>export_volume_to_hostset(volume_name, host_set_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
-<td>Export volume to host set.</td>
-</tr>
-<tr>
-<td><code>unexport_volume_from_hostset(volume_name, host_set_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
-<td>Remove host set export.</td>
-</tr>
-<tr>
-<td><code>export_volumeset_to_host(volume_set_name, host_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
-<td>Export volume set to host.</td>
-</tr>
-<tr>
-<td><code>unexport_volumeset_from_host(volume_set_name, host_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
-<td>Remove export of set from host.</td>
-</tr>
-<tr>
-<td><code>export_volumeset_to_hostset(volume_set_name, host_set_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
-<td>Export volume set to host set.</td>
-</tr>
-<tr>
-<td><code>unexport_volumeset_from_hostset(volume_set_name, host_set_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code></td>
-<td>Remove set export from host set.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="common-parameters">Common Parameters<a class="headerlink" href="#common-parameters" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>volume_name / volume_set_name</td>
-<td>str</td>
-<td>Volume or volume set being exported.</td>
-</tr>
-<tr>
-<td>host_name / host_set_name</td>
-<td>str</td>
-<td>Target host or host set.</td>
-</tr>
-<tr>
-<td>lun</td>
-<td>int</td>
-<td>Explicit LUN number (omit if <code>autolun=True</code>).</td>
-</tr>
-<tr>
-<td>node_val, slot, card_port</td>
-<td>int</td>
-<td>Port addressing components (implementation maps to physical port).</td>
-</tr>
-<tr>
-<td>autolun</td>
-<td>bool</td>
-<td>If True, array assigns next available LUN.</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Methods Overview</strong>
+| Method | Purpose |
+|--------|---------|
+| <code>export_volume_to_host(volume_name, host_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code> | Export volume to a host. |
+| <code>unexport_volume_from_host(volume_name, host_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code> | Remove host export. |
+| <code>export_volume_to_hostset(volume_name, host_set_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code> | Export volume to host set. |
+| <code>unexport_volume_from_hostset(volume_name, host_set_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code> | Remove host set export. |
+| <code>export_volumeset_to_host(volume_set_name, host_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code> | Export volume set to host. |
+| <code>unexport_volumeset_from_host(volume_set_name, host_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code> | Remove export of set from host. |
+| <code>export_volumeset_to_hostset(volume_set_name, host_set_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)</code> | Export volume set to host set. |
+| <code>unexport_volumeset_from_hostset(volume_set_name, host_set_name, lun, node_val=None, slot=None, card_port=None, autolun=False)</code> | Remove set export from host set. |</p>
+<p><strong>Common Parameters</strong>
+| Name | Type | Description |
+|------|------|-------------|
+| volume_name / volume_set_name | str | Volume or volume set being exported. |
+| host_name / host_set_name | str | Target host or host set. |
+| lun | int | Explicit LUN number (omit if <code>autolun=True</code>). |
+| node_val, slot, card_port | int | Port addressing components (implementation maps to physical port). |
+| autolun | bool | If True, array assigns next available LUN. |</p>
 <p><strong>Preprocessing:</strong> <code>build_payload</code> assembles export payload, <code>find_vlun</code> checks for existing mappings for idempotence, validates host/volume existence and ensures no duplicate LUN conflict.</p>
 <p><strong>Returns:</strong> dict - Mapping result (or indication of existing mapping for idempotence). Unexport operations return confirmation or no-op.</p>
 <hr />

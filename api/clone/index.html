@@ -64,16 +64,6 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">CloneWorkflow</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#methods-overview">Methods Overview</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#copyvolume">copyVolume</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#resyncphysicalcopy">resyncPhysicalCopy</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#stopofflinephysicalcopy">stopOfflinePhysicalCopy</a>
-    </li>
-        </ul>
-    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../vlun/">VLUNWorkflow</a>
@@ -131,39 +121,16 @@
               
                 <h1 id="cloneworkflow">CloneWorkflow<a class="headerlink" href="#cloneworkflow" title="Permanent link">&para;</a></h1>
 <p>Physical copy (clone) orchestration: create, monitor, stop/resync copies.</p>
-<h2 id="methods-overview">Methods Overview<a class="headerlink" href="#methods-overview" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>onlinePhysicalCopyExists(src_name, phy_copy_name)</code></td>
-<td>Check online physical copy existence &amp; task state.</td>
-</tr>
-<tr>
-<td><code>offlinePhysicalCopyExists(src_name, phy_copy_name)</code></td>
-<td>Check offline copy existence.</td>
-</tr>
-<tr>
-<td><code>copyVolume(src_name, dest_name, dest_cpg, optional=None)</code></td>
-<td>Initiate physical copy.</td>
-</tr>
-<tr>
-<td><code>stopOfflinePhysicalCopy(name)</code></td>
-<td>Stop an offline copy task.</td>
-</tr>
-<tr>
-<td><code>resyncPhysicalCopy(volume_name)</code></td>
-<td>Resync an existing physical copy pair.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="copyvolume">copyVolume<a class="headerlink" href="#copyvolume" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>copyVolume(src_name, dest_name, dest_cpg, optional=None)</code></p>
+<p><strong>Methods Overview</strong>
+| Method | Purpose |
+|--------|---------|
+| <code>onlinePhysicalCopyExists(src_name, phy_copy_name)</code> | Check online physical copy existence &amp; task state. |
+| <code>offlinePhysicalCopyExists(src_name, phy_copy_name)</code> | Check offline copy existence. |
+| <code>copyVolume(src_name, dest_name, dest_cpg, optional=None)</code> | Initiate physical copy. |
+| <code>stopOfflinePhysicalCopy(name)</code> | Stop an offline copy task. |
+| <code>resyncPhysicalCopy(volume_name)</code> | Resync an existing physical copy pair. |</p>
+<p><strong>copyVolume</strong>
+Signature: <code>copyVolume(src_name, dest_name, dest_cpg, optional=None)</code></p>
 <table>
 <thead>
 <tr>
@@ -202,8 +169,8 @@
 </table>
 <p><strong>Preprocessing:</strong> <code>preprocess_copyVolume</code> ensures source exists, destination absent, normalizes optional flags, creates action payload.</p>
 <p><strong>Returns:</strong> dict - Copy task metadata.</p>
-<h3 id="resyncphysicalcopy">resyncPhysicalCopy<a class="headerlink" href="#resyncphysicalcopy" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>resyncPhysicalCopy(volume_name)</code></p>
+<p><strong>resyncPhysicalCopy</strong>
+Signature: <code>resyncPhysicalCopy(volume_name)</code></p>
 <table>
 <thead>
 <tr>
@@ -224,8 +191,8 @@
 </table>
 <p><strong>Preprocessing:</strong> Sets <code>action: RESYNC_PHYSICAL_COPY</code> constant; validates pair state.</p>
 <p><strong>Returns:</strong> dict - Resync task response.</p>
-<h3 id="stopofflinephysicalcopy">stopOfflinePhysicalCopy<a class="headerlink" href="#stopofflinephysicalcopy" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>stopOfflinePhysicalCopy(name)</code></p>
+<p><strong>stopOfflinePhysicalCopy</strong>
+Signature: <code>stopOfflinePhysicalCopy(name)</code></p>
 <table>
 <thead>
 <tr>

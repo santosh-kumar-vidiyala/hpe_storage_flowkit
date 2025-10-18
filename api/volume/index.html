@@ -60,28 +60,6 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">VolumeWorkflow</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#methods-overview">Methods Overview</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#method-reference">Method Reference</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#create_volume">create_volume</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#get_volume">get_volume</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#modify_volume">modify_volume</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#grow_volume">grow_volume</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#tune_volume">tune_volume</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#delete_volume">delete_volume</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a>
-    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../snapshot/">SnapshotWorkflow</a>
@@ -143,7 +121,7 @@
               
                 <h1 id="volumeworkflow">VolumeWorkflow<a class="headerlink" href="#volumeworkflow" title="Permanent link">&para;</a></h1>
 <p>Operations for virtual volumes: create, inspect, modify, grow, tune and delete. Methods in <code>AnsibleClient</code> wrap underlying workflow logic and invoke preprocessing helpers to normalize inputs.</p>
-<h2 id="methods-overview">Methods Overview<a class="headerlink" href="#methods-overview" title="Permanent link">&para;</a></h2>
+<p><strong>Methods Overview</strong></p>
 <table>
 <thead>
 <tr>
@@ -178,9 +156,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="method-reference">Method Reference<a class="headerlink" href="#method-reference" title="Permanent link">&para;</a></h2>
-<h3 id="create_volume">create_volume<a class="headerlink" href="#create_volume" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>create_volume(name, cpg, size, size_unit, params=None)</code></p>
+<p><strong>Method Reference</strong></p>
+<p><strong>create_volume</strong>
+Signature: <code>create_volume(name, cpg, size, size_unit, params=None)</code></p>
 <table>
 <thead>
 <tr>
@@ -225,8 +203,8 @@
 </table>
 <p><strong>Preprocessing:</strong> <code>preprocess_create_volume</code> validates size &amp; unit, converts to MiB, applies defaults (e.g. provisioning type), filters unsupported keys and may raise if volume exists (idempotence).</p>
 <p><strong>Returns:</strong> dict - Created volume resource.</p>
-<h3 id="get_volume">get_volume<a class="headerlink" href="#get_volume" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>get_volume(name)</code></p>
+<p><strong>get_volume</strong>
+Signature: <code>get_volume(name)</code></p>
 <table>
 <thead>
 <tr>
@@ -247,8 +225,8 @@
 </table>
 <p><strong>Preprocessing:</strong> None (direct REST retrieval). May wrap exceptions.</p>
 <p><strong>Returns:</strong> dict - Volume details.</p>
-<h3 id="modify_volume">modify_volume<a class="headerlink" href="#modify_volume" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>modify_volume(name, volume_mods, app_type=None)</code></p>
+<p><strong>modify_volume</strong>
+Signature: <code>modify_volume(name, volume_mods, app_type=None)</code></p>
 <table>
 <thead>
 <tr>
@@ -281,8 +259,8 @@
 </table>
 <p><strong>Preprocessing:</strong> Internal validation of keys; may enrich payload with application metadata, removes no-op modifications.</p>
 <p><strong>Returns:</strong> dict - Updated resource state.</p>
-<h3 id="grow_volume">grow_volume<a class="headerlink" href="#grow_volume" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>grow_volume(name, operation, params)</code></p>
+<p><strong>grow_volume</strong>
+Signature: <code>grow_volume(name, operation, params)</code></p>
 <table>
 <thead>
 <tr>
@@ -315,8 +293,8 @@
 </table>
 <p><strong>Preprocessing:</strong> <code>preprocess_grow_volume</code> reads current size (<code>get_volume</code>) and calculates new sizeMiB; returns 0 if no change, preventing unnecessary REST action.</p>
 <p><strong>Returns:</strong> dict - Growth operation result or idempotent no-op info.</p>
-<h3 id="tune_volume">tune_volume<a class="headerlink" href="#tune_volume" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>tune_volume(name, operation, params)</code></p>
+<p><strong>tune_volume</strong>
+Signature: <code>tune_volume(name, operation, params)</code></p>
 <table>
 <thead>
 <tr>
@@ -349,8 +327,8 @@
 </table>
 <p><strong>Preprocessing:</strong> <code>preprocess_tune_volume</code> inspects current volume details to build minimal delta (e.g. only change provisioning if different) and sets appropriate action codes.</p>
 <p><strong>Returns:</strong> dict - Tuning result or no-op indicator.</p>
-<h3 id="delete_volume">delete_volume<a class="headerlink" href="#delete_volume" title="Permanent link">&para;</a></h3>
-<p><strong>Signature:</strong> <code>delete_volume(name)</code></p>
+<p><strong>delete_volume</strong>
+Signature: <code>delete_volume(name)</code></p>
 <table>
 <thead>
 <tr>
@@ -371,13 +349,13 @@
 </table>
 <p><strong>Preprocessing:</strong> <code>preprocess_delete_volume</code> ensures volume exists and is safe to remove (e.g. not exported) before issuing REST delete. May raise early exception if constraints violated.</p>
 <p><strong>Returns:</strong> dict | None - Deletion response or None if already absent (idempotent).</p>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<p><strong>Examples</strong></p>
 <pre><code class="language-python">client.create_volume(&quot;db-vol&quot;, cpg=&quot;FC_r5&quot;, size=50, size_unit=&quot;GiB&quot;, params={&quot;compression&quot;: True})
 client.grow_volume(&quot;db-vol&quot;, operation=&quot;add&quot;, params={&quot;additional&quot;: 10, &quot;unit&quot;: &quot;GiB&quot;})
 client.tune_volume(&quot;db-vol&quot;, operation=&quot;convert_provisioning&quot;, params={&quot;newType&quot;: &quot;tpvv&quot;})
 </code></pre>
-<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
-<p>All methods may raise <code>HPEStorageException</code> (wrapped) for array-side errors; preprocessing raises <code>ValueError</code> or custom exceptions for invalid inputs prior to REST calls.</p>
+<p><strong>Error Handling</strong>
+All methods may raise <code>HPEStorageException</code> (wrapped) for array-side errors; preprocessing raises <code>ValueError</code> or custom exceptions for invalid inputs prior to REST calls.</p>
 <hr />
 <p>© 2025 Hewlett Packard Enterprise. All rights reserved.</p>
               
