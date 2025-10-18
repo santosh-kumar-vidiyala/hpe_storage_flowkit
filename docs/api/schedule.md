@@ -6,7 +6,7 @@ title: Schedule Operations
 
 Snapshot schedule lifecycle utilities exposed directly on `AnsibleClient` (not a separate workflow class). These methods manage recurring snapshot tasks with retention and expiration policies.
 
-## Methods Overview
+**Methods Overview**
 | Method | Purpose |
 |--------|---------|
 | `scheduleExists(schedule_name)` | Check if schedule exists. |
@@ -18,7 +18,7 @@ Snapshot schedule lifecycle utilities exposed directly on `AnsibleClient` (not a
 | `suspendSchedule(schedule_name)` | Suspend execution of schedule. |
 | `resumeSchedule(schedule_name)` | Resume a suspended schedule. |
 
-## Common Payload Keys (createSchedule)
+**Common Payload Keys (createSchedule)**
 | Key | Type | Description |
 |-----|------|-------------|
 | read_only | bool | If True, snapshots created read-only. |
@@ -30,8 +30,8 @@ Snapshot schedule lifecycle utilities exposed directly on `AnsibleClient` (not a
 
 **Preprocessing:** `preprocess_create_schedule(expiration_time, retention_time, expiration_unit, retention_unit)` converts units to hours and validates non-zero durations. If either duration resolves to 0 hours, creation aborts with an error (idempotent safeguard).
 
-## createSchedule
-**Signature:** `createSchedule(schedule_name, taskfreq, payload)`
+**createSchedule**
+Signature: `createSchedule(schedule_name, taskfreq, payload)`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -41,8 +41,8 @@ Snapshot schedule lifecycle utilities exposed directly on `AnsibleClient` (not a
 
 **Returns:** tuple `(changed, failed, message, data)` reflecting creation result.
 
-## modifySchedule
-**Signature:** `modifySchedule(name, new_name, task_freq)`
+**modifySchedule**
+Signature: `modifySchedule(name, new_name, task_freq)`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -52,13 +52,13 @@ Snapshot schedule lifecycle utilities exposed directly on `AnsibleClient` (not a
 
 **Preprocessing:** Builds `setsched` command options only for changed values; skips no-op modifications.
 
-## suspendSchedule / resumeSchedule
+**suspendSchedule / resumeSchedule**
 Both validate existence (`scheduleExists`) before invoking underlying SSH command. Return tuple `(changed, failed, message, data)`; if absent, return `(False, False, "Schedule does not exist", {})`.
 
-## deleteSchedule
+**deleteSchedule**
 Validates existence and issues force removal command. Returns deletion task result or no-op tuple if schedule absent.
 
-## Error Handling
+**Error Handling**
 SSH command exceptions are caught and converted to message tuples; invalid preprocessing (zero retention/expiration) aborts early.
 
 ---

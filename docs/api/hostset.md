@@ -6,7 +6,7 @@ title: HostSetWorkflow
 
 Group hosts for shared exports and policy application.
 
-## Methods Overview
+**Methods Overview**
 | Method | Purpose |
 |--------|---------|
 | `create_hostset(name, domain=None, setmembers=None)` | Create host set. |
@@ -15,8 +15,8 @@ Group hosts for shared exports and policy application.
 | `remove_hosts_from_hostset(name, setmembers)` | Remove hosts. |
 | `get_hostset(name)` | Fetch host set details. |
 
-### create_hostset
-**Signature:** `create_hostset(name, domain=None, setmembers=None)`
+**create_hostset**
+Signature: `create_hostset(name, domain=None, setmembers=None)`
 
 | Parameter | Type | Description |
 |-----------|------|-------------|

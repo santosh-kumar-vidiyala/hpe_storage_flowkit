@@ -6,15 +6,15 @@ title: SnapshotWorkflow
 
 Manage virtual copy snapshots: creation, deletion, and promotion (making a snapshot the active volume).
 
-## Methods Overview
+**Methods Overview**
 | Method | Purpose |
 |--------|---------|
 | `create_snapshot(volume_name, snapshot_name, optional=None)` | Create snapshot of a base volume. |
 | `delete_snapshot(snapshot_name)` | Delete a snapshot. |
 | `promoteVirtualCopy(name, params)` | Promote snapshot to base volume (restore). |
 
-### create_snapshot
-**Signature:** `create_snapshot(volume_name, snapshot_name, optional=None)`
+**create_snapshot**
+Signature: `create_snapshot(volume_name, snapshot_name, optional=None)`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -26,8 +26,8 @@ Manage virtual copy snapshots: creation, deletion, and promotion (making a snaps
 
 **Returns:** dict - Snapshot resource.
 
-### delete_snapshot
-**Signature:** `delete_snapshot(snapshot_name)`
+**delete_snapshot**
+Signature: `delete_snapshot(snapshot_name)`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -37,8 +37,8 @@ Manage virtual copy snapshots: creation, deletion, and promotion (making a snaps
 
 **Returns:** dict | None - Deletion result or None if snapshot absent.
 
-### promoteVirtualCopy
-**Signature:** `promoteVirtualCopy(name, params)`
+**promoteVirtualCopy**
+Signature: `promoteVirtualCopy(name, params)`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|

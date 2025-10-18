@@ -6,7 +6,7 @@ title: VLUNWorkflow
 
 Export / unexport volumes and volume sets to hosts and host sets (Virtual LUN mappings). Supports optional manual LUN assignment and port targeting.
 
-## Methods Overview
+**Methods Overview**
 | Method | Purpose |
 |--------|---------|
 | `export_volume_to_host(volume_name, host_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)` | Export volume to a host. |
@@ -18,7 +18,7 @@ Export / unexport volumes and volume sets to hosts and host sets (Virtual LUN ma
 | `export_volumeset_to_hostset(volume_set_name, host_set_name, lun=None, node_val=None, slot=None, card_port=None, autolun=False)` | Export volume set to host set. |
 | `unexport_volumeset_from_hostset(volume_set_name, host_set_name, lun, node_val=None, slot=None, card_port=None, autolun=False)` | Remove set export from host set. |
 
-### Common Parameters
+**Common Parameters**
 | Name | Type | Description |
 |------|------|-------------|
 | volume_name / volume_set_name | str | Volume or volume set being exported. |

@@ -6,7 +6,7 @@ title: VolumeSetWorkflow
 
 Group volumes for policy management, exports and replication operations.
 
-## Methods Overview
+**Methods Overview**
 | Method | Purpose |
 |--------|---------|
 | `create_volumeset(name, domain=None, setmembers=None)` | Create volume set. |
@@ -14,8 +14,8 @@ Group volumes for policy management, exports and replication operations.
 | `add_volumes_to_volumeset(name, setmembers)` | Add volumes. |
 | `remove_volumes_from_volumeset(name, setmembers)` | Remove volumes. |
 
-### create_volumeset
-**Signature:** `create_volumeset(name, domain=None, setmembers=None)`
+**create_volumeset**
+Signature: `create_volumeset(name, domain=None, setmembers=None)`
 
 | Parameter | Type | Description |
 |-----------|------|-------------|

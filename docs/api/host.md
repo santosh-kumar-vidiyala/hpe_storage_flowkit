@@ -6,7 +6,7 @@ title: HostWorkflow
 
 Manage host objects (initiator identities) and their attributes, CHAP security and path assignments.
 
-## Methods Overview
+**Methods Overview**
 | Method | Purpose |
 |--------|---------|
 | `create_host(name, iscsiNames=None, FCWwns=None, host_domain=None, host_persona=None)` | Create host. |
@@ -23,8 +23,8 @@ Manage host objects (initiator identities) and their attributes, CHAP security a
 | `add_iscsi_path_to_host(host_name, host_iscsi_names)` | Add iSCSI initiators. |
 | `remove_iscsi_path_from_host(host_name, host_iscsi_names, force_path_removal=False)` | Remove iSCSI initiators. |
 
-### create_host
-**Signature:** `create_host(name, iscsiNames=None, FCWwns=None, host_domain=None, host_persona=None)`
+**create_host**
+Signature: `create_host(name, iscsiNames=None, FCWwns=None, host_domain=None, host_persona=None)`
 
 | Parameter | Type | Description |
 |-----------|------|-------------|

@@ -6,14 +6,14 @@ title: CPGWorkflow
 
 Manage Common Provisioning Groups (CPGs) which define underlying storage pool characteristics.
 
-## Methods Overview
+**Methods Overview**
 | Method | Purpose |
 |--------|---------|
 | `create_cpg(name, params)` | Create a new CPG. |
 | `delete_cpg(name)` | Delete an existing CPG. |
 
-### create_cpg
-**Signature:** `create_cpg(name, params)`
+**create_cpg**
+Signature: `create_cpg(name, params)`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -24,8 +24,8 @@ Manage Common Provisioning Groups (CPGs) which define underlying storage pool ch
 
 **Returns:** dict - Created CPG.
 
-### delete_cpg
-**Signature:** `delete_cpg(name)`
+**delete_cpg**
+Signature: `delete_cpg(name)`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|

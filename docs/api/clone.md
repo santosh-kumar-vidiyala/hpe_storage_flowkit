@@ -6,7 +6,7 @@ title: CloneWorkflow
 
 Physical copy (clone) orchestration: create, monitor, stop/resync copies.
 
-## Methods Overview
+**Methods Overview**
 | Method | Purpose |
 |--------|---------|
 | `onlinePhysicalCopyExists(src_name, phy_copy_name)` | Check online physical copy existence & task state. |
@@ -15,8 +15,8 @@ Physical copy (clone) orchestration: create, monitor, stop/resync copies.
 | `stopOfflinePhysicalCopy(name)` | Stop an offline copy task. |
 | `resyncPhysicalCopy(volume_name)` | Resync an existing physical copy pair. |
 
-### copyVolume
-**Signature:** `copyVolume(src_name, dest_name, dest_cpg, optional=None)`
+**copyVolume**
+Signature: `copyVolume(src_name, dest_name, dest_cpg, optional=None)`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -29,8 +29,8 @@ Physical copy (clone) orchestration: create, monitor, stop/resync copies.
 
 **Returns:** dict - Copy task metadata.
 
-### resyncPhysicalCopy
-**Signature:** `resyncPhysicalCopy(volume_name)`
+**resyncPhysicalCopy**
+Signature: `resyncPhysicalCopy(volume_name)`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -40,8 +40,8 @@ Physical copy (clone) orchestration: create, monitor, stop/resync copies.
 
 **Returns:** dict - Resync task response.
 
-### stopOfflinePhysicalCopy
-**Signature:** `stopOfflinePhysicalCopy(name)`
+**stopOfflinePhysicalCopy**
+Signature: `stopOfflinePhysicalCopy(name)`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|

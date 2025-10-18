@@ -6,7 +6,7 @@ title: RemoteCopyGroupWorkflow
 
 Orchestrate remote replication groups, volume admissions, synchronization, and target/links management.
 
-## Methods Overview (Selected)
+**Methods Overview (Selected)**
 | Method | Purpose |
 |--------|---------|
 | `create_remote_copy_group(remote_copy_group_name, domain, remote_copy_targets, local_user_cpg, local_snap_cpg)` | Create group. |
@@ -26,8 +26,8 @@ Orchestrate remote replication groups, volume admissions, synchronization, and t
 | `rcopy_link_exists(target_name, source_port, target_port_wwn_or_ip)` | Check link existence. |
 | `start_remote_copy_service()` | Start replication service. |
 
-### create_remote_copy_group
-**Signature:** `create_remote_copy_group(remote_copy_group_name, domain, remote_copy_targets, local_user_cpg, local_snap_cpg)`
+**create_remote_copy_group**
+Signature: `create_remote_copy_group(remote_copy_group_name, domain, remote_copy_targets, local_user_cpg, local_snap_cpg)`
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
