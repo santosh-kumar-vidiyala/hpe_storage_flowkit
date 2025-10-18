@@ -9,19 +9,19 @@ Manage host objects (initiator identities) and their attributes, CHAP security a
 **Methods Overview**
 | Method | Purpose |
 |--------|---------|
-| `create_host` | Create host. |
-| `delete_host` | Delete host. |
-| `modify_host` | Rename or change persona. |
-| `add_initiator_chap` | Configure initiator CHAP. |
-| `remove_initiator_chap` | Remove initiator CHAP. |
-| `initiator_chap_exists` | Check if initiator CHAP present. |
-| `add_target_chap` | Configure target CHAP. |
-| `remove_target_chap` | Remove target CHAP. |
-| `queryHost` | Query hosts by initiators. |
-| `add_fc_path_to_host` | Add FC paths. |
-| `remove_fc_path_from_host` | Remove FC paths. |
-| `add_iscsi_path_to_host` | Add iSCSI initiators. |
-| `remove_iscsi_path_from_host` | Remove iSCSI initiators. |
+| `create_host()` | Create host. |
+| `delete_host()` | Delete host. |
+| `modify_host()` | Rename or change persona. |
+| `add_initiator_chap()` | Configure initiator CHAP. |
+| `remove_initiator_chap()` | Remove initiator CHAP. |
+| `initiator_chap_exists()` | Check if initiator CHAP present. |
+| `add_target_chap()` | Configure target CHAP. |
+| `remove_target_chap()` | Remove target CHAP. |
+| `queryHost()` | Query hosts by initiators. |
+| `add_fc_path_to_host()` | Add FC paths. |
+| `remove_fc_path_from_host()` | Remove FC paths. |
+| `add_iscsi_path_to_host()` | Add iSCSI initiators. |
+| `remove_iscsi_path_from_host()` | Remove iSCSI initiators. |
 
 **create_host**
 Signature: `create_host(name, iscsiNames=None, FCWwns=None, host_domain=None, host_persona=None)`

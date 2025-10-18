@@ -9,8 +9,8 @@ Manage Common Provisioning Groups (CPGs) which define underlying storage pool ch
 **Methods Overview**
 | Method | Purpose |
 |--------|---------|
-| `create_cpg` | Create a new CPG. |
-| `delete_cpg` | Delete an existing CPG. |
+| `create_cpg()` | Create a new CPG. |
+| `delete_cpg()` | Delete an existing CPG. |
 
 **create_cpg**
 Signature: `create_cpg(name, params)`

@@ -10,12 +10,12 @@ Operations for virtual volumes: create, inspect, modify, grow, tune and delete. 
 
 | Method | Purpose |
 |--------|---------|
-| `create_volume` | Create a new virtual volume. |
-| `get_volume` | Retrieve details for a volume. |
-| `modify_volume` | Update attributes (e.g. provisioning, userCPG). |
-| `grow_volume` | Increase capacity (operation + params determine growth). |
-| `tune_volume` | Adjust performance/provisioning characteristics. |
-| `delete_volume` | Delete a volume. |
+| `create_volume()` | Create a new virtual volume. |
+| `get_volume()` | Retrieve details for a volume. |
+| `modify_volume()` | Update attributes (e.g. provisioning, userCPG). |
+| `grow_volume()` | Increase capacity (operation + params determine growth). |
+| `tune_volume()` | Adjust performance/provisioning characteristics. |
+| `delete_volume()` | Delete a volume. |
 
 **Method Reference**
 

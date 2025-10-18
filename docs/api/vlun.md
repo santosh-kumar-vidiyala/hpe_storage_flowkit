@@ -9,14 +9,14 @@ Export / unexport volumes and volume sets to hosts and host sets (Virtual LUN ma
 **Methods Overview**
 | Method | Purpose |
 |--------|---------|
-| `export_volume_to_host` | Export volume to a host. |
-| `unexport_volume_from_host` | Remove host export. |
-| `export_volume_to_hostset` | Export volume to host set. |
-| `unexport_volume_from_hostset` | Remove host set export. |
-| `export_volumeset_to_host` | Export volume set to host. |
-| `unexport_volumeset_from_host` | Remove export of set from host. |
-| `export_volumeset_to_hostset` | Export volume set to host set. |
-| `unexport_volumeset_from_hostset` | Remove set export from host set. |
+| `export_volume_to_host()` | Export volume to a host. |
+| `unexport_volume_from_host()` | Remove host export. |
+| `export_volume_to_hostset()` | Export volume to host set. |
+| `unexport_volume_from_hostset()` | Remove host set export. |
+| `export_volumeset_to_host()` | Export volume set to host. |
+| `unexport_volumeset_from_host()` | Remove export of set from host. |
+| `export_volumeset_to_hostset()` | Export volume set to host set. |
+| `unexport_volumeset_from_hostset()` | Remove set export from host set. |
 
 **Common Parameters**
 | Name | Type | Description |
