@@ -7,6 +7,7 @@ title: QOSWorkflow
 Define and manage Quality of Service (QoS) policies restricting I/O (bandwidth, IOPS) on volumes or sets.
 
 **Methods Overview**
+
 | Method | Purpose |
 |--------|---------|
 | `create_qos()` | Create QoS rule. |

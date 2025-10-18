@@ -6,7 +6,8 @@ title: SystemWorkflow
 
 Retrieve high-level system metadata, status, capacity and configuration details.
 
-**Representative Methods**
+**Methods Overview**
+
 | Method | Purpose |
 |--------|---------|
 | `get_system_status()` | Returns health/status summary. |

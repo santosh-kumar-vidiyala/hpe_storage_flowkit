@@ -7,6 +7,7 @@ title: Schedule Operations
 Snapshot schedule lifecycle utilities exposed directly on `AnsibleClient` (not a separate workflow class). These methods manage recurring snapshot tasks with retention and expiration policies.
 
 **Methods Overview**
+
 | Method | Purpose |
 |--------|---------|
 | `scheduleExists()` | Check if schedule exists. |
