@@ -121,22 +121,69 @@
               
                 <h1 id="hostworkflow">HostWorkflow<a class="headerlink" href="#hostworkflow" title="Permanent link">&para;</a></h1>
 <p>Manage host objects (initiator identities) and their attributes, CHAP security and path assignments.</p>
-<p><strong>Methods Overview</strong>
-| Method | Purpose |
-|--------|---------|
-| <code>create_host()</code> | Create host. |
-| <code>delete_host()</code> | Delete host. |
-| <code>modify_host()</code> | Rename or change persona. |
-| <code>add_initiator_chap()</code> | Configure initiator CHAP. |
-| <code>remove_initiator_chap()</code> | Remove initiator CHAP. |
-| <code>initiator_chap_exists()</code> | Check if initiator CHAP present. |
-| <code>add_target_chap()</code> | Configure target CHAP. |
-| <code>remove_target_chap()</code> | Remove target CHAP. |
-| <code>queryHost()</code> | Query hosts by initiators. |
-| <code>add_fc_path_to_host()</code> | Add FC paths. |
-| <code>remove_fc_path_from_host()</code> | Remove FC paths. |
-| <code>add_iscsi_path_to_host()</code> | Add iSCSI initiators. |
-| <code>remove_iscsi_path_from_host()</code> | Remove iSCSI initiators. |</p>
+<p><strong>Methods Overview</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>create_host()</code></td>
+<td>Create host.</td>
+</tr>
+<tr>
+<td><code>delete_host()</code></td>
+<td>Delete host.</td>
+</tr>
+<tr>
+<td><code>modify_host()</code></td>
+<td>Rename or change persona.</td>
+</tr>
+<tr>
+<td><code>add_initiator_chap()</code></td>
+<td>Configure initiator CHAP.</td>
+</tr>
+<tr>
+<td><code>remove_initiator_chap()</code></td>
+<td>Remove initiator CHAP.</td>
+</tr>
+<tr>
+<td><code>initiator_chap_exists()</code></td>
+<td>Check if initiator CHAP present.</td>
+</tr>
+<tr>
+<td><code>add_target_chap()</code></td>
+<td>Configure target CHAP.</td>
+</tr>
+<tr>
+<td><code>remove_target_chap()</code></td>
+<td>Remove target CHAP.</td>
+</tr>
+<tr>
+<td><code>queryHost()</code></td>
+<td>Query hosts by initiators.</td>
+</tr>
+<tr>
+<td><code>add_fc_path_to_host()</code></td>
+<td>Add FC paths.</td>
+</tr>
+<tr>
+<td><code>remove_fc_path_from_host()</code></td>
+<td>Remove FC paths.</td>
+</tr>
+<tr>
+<td><code>add_iscsi_path_to_host()</code></td>
+<td>Add iSCSI initiators.</td>
+</tr>
+<tr>
+<td><code>remove_iscsi_path_from_host()</code></td>
+<td>Remove iSCSI initiators.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>create_host</strong>
 Signature: <code>create_host(name, iscsiNames=None, FCWwns=None, host_domain=None, host_persona=None)</code></p>
 <table>

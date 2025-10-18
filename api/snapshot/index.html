@@ -121,12 +121,29 @@
               
                 <h1 id="snapshotworkflow">SnapshotWorkflow<a class="headerlink" href="#snapshotworkflow" title="Permanent link">&para;</a></h1>
 <p>Manage virtual copy snapshots: creation, deletion, and promotion (making a snapshot the active volume).</p>
-<p><strong>Methods Overview</strong>
-| Method | Purpose |
-|--------|---------|
-| <code>create_snapshot()</code> | Create snapshot of a base volume. |
-| <code>delete_snapshot()</code> | Delete a snapshot. |
-| <code>promoteVirtualCopy()</code> | Promote snapshot to base volume (restore). |</p>
+<p><strong>Methods Overview</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>create_snapshot()</code></td>
+<td>Create snapshot of a base volume.</td>
+</tr>
+<tr>
+<td><code>delete_snapshot()</code></td>
+<td>Delete a snapshot.</td>
+</tr>
+<tr>
+<td><code>promoteVirtualCopy()</code></td>
+<td>Promote snapshot to base volume (restore).</td>
+</tr>
+</tbody>
+</table>
 <p><strong>create_snapshot</strong>
 Signature: <code>create_snapshot(volume_name, snapshot_name, optional=None)</code></p>
 <table>

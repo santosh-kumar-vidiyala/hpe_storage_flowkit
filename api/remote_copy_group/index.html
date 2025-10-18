@@ -121,25 +121,81 @@
               
                 <h1 id="remotecopygroupworkflow">RemoteCopyGroupWorkflow<a class="headerlink" href="#remotecopygroupworkflow" title="Permanent link">&para;</a></h1>
 <p>Orchestrate remote replication groups, volume admissions, synchronization, and target/links management.</p>
-<p><strong>Methods Overview (Selected)</strong>
-| Method | Purpose |
-|--------|---------|
-| <code>create_remote_copy_group()</code> | Create group. |
-| <code>delete_remote_copy_group()</code> | Delete group. |
-| <code>modify_remote_copy_group()</code> | Adjust local settings &amp; targets. |
-| <code>remote_copy_group_status()</code> | Fetch status. |
-| <code>add_volume_to_remote_copy_group()</code> | Admit volume. |
-| <code>remove_volume_from_remote_copy_group()</code> | Remove volume. |
-| <code>start_remote_copy_group()</code> | Start replication. |
-| <code>stop_remote_copy_group()</code> | Stop replication. |
-| <code>synchronize_remote_copy_group()</code> | Force synchronization. |
-| <code>admit_remote_copy_links()</code> | Establish links. |
-| <code>dismiss_remote_copy_links()</code> | Remove links. |
-| <code>admit_remote_copy_target()</code> | Add target. |
-| <code>dismiss_remote_copy_target()</code> | Remove target. |
-| <code>show_remote_copy_service()</code> | Display service info. |
-| <code>rcopy_link_exists()</code> | Check link existence. |
-| <code>start_remote_copy_service()</code> | Start replication service. |</p>
+<p><strong>Methods Overview (Selected)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>create_remote_copy_group()</code></td>
+<td>Create group.</td>
+</tr>
+<tr>
+<td><code>delete_remote_copy_group()</code></td>
+<td>Delete group.</td>
+</tr>
+<tr>
+<td><code>modify_remote_copy_group()</code></td>
+<td>Adjust local settings &amp; targets.</td>
+</tr>
+<tr>
+<td><code>remote_copy_group_status()</code></td>
+<td>Fetch status.</td>
+</tr>
+<tr>
+<td><code>add_volume_to_remote_copy_group()</code></td>
+<td>Admit volume.</td>
+</tr>
+<tr>
+<td><code>remove_volume_from_remote_copy_group()</code></td>
+<td>Remove volume.</td>
+</tr>
+<tr>
+<td><code>start_remote_copy_group()</code></td>
+<td>Start replication.</td>
+</tr>
+<tr>
+<td><code>stop_remote_copy_group()</code></td>
+<td>Stop replication.</td>
+</tr>
+<tr>
+<td><code>synchronize_remote_copy_group()</code></td>
+<td>Force synchronization.</td>
+</tr>
+<tr>
+<td><code>admit_remote_copy_links()</code></td>
+<td>Establish links.</td>
+</tr>
+<tr>
+<td><code>dismiss_remote_copy_links()</code></td>
+<td>Remove links.</td>
+</tr>
+<tr>
+<td><code>admit_remote_copy_target()</code></td>
+<td>Add target.</td>
+</tr>
+<tr>
+<td><code>dismiss_remote_copy_target()</code></td>
+<td>Remove target.</td>
+</tr>
+<tr>
+<td><code>show_remote_copy_service()</code></td>
+<td>Display service info.</td>
+</tr>
+<tr>
+<td><code>rcopy_link_exists()</code></td>
+<td>Check link existence.</td>
+</tr>
+<tr>
+<td><code>start_remote_copy_service()</code></td>
+<td>Start replication service.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>create_remote_copy_group</strong>
 Signature: <code>create_remote_copy_group(remote_copy_group_name, domain, remote_copy_targets, local_user_cpg, local_snap_cpg)</code></p>
 <table>
