@@ -124,22 +124,22 @@
 <p><strong>Methods Overview (Selected)</strong>
 | Method | Purpose |
 |--------|---------|
-| <code>create_remote_copy_group(remote_copy_group_name, domain, remote_copy_targets, local_user_cpg, local_snap_cpg)</code> | Create group. |
-| <code>delete_remote_copy_group(remote_copy_group_name, keep_snap=False)</code> | Delete group. |
-| <code>modify_remote_copy_group(remote_copy_group_name, local_user_cpg, local_snap_cpg, modify_targets, unset_user_cpg=False, unset_snap_cpg=False)</code> | Adjust local settings &amp; targets. |
-| <code>remote_copy_group_status(remote_copy_group_name)</code> | Fetch status. |
-| <code>add_volume_to_remote_copy_group(remote_copy_group_name, volume_name, admit_volume_targets, snapshot_name=None, volume_auto_creation=False, skip_initial_sync=False, different_secondary_wwn=False)</code> | Admit volume. |
-| <code>remove_volume_from_remote_copy_group(...)</code> | Remove volume. |
-| <code>start_remote_copy_group(remote_copy_group_name, skip_initial_sync=False, target_name=None, starting_snapshots=None)</code> | Start replication. |
-| <code>stop_remote_copy_group(remote_copy_group_name, no_snapshot=False, target_name=None)</code> | Stop replication. |
-| <code>synchronize_remote_copy_group(remote_copy_group_name, no_resync_snapshot=False, target_name=None, full_sync=False)</code> | Force synchronization. |
-| <code>admit_remote_copy_links(target_name, source_port, target_port_wwn_or_ip)</code> | Establish links. |
-| <code>dismiss_remote_copy_links(target_name, source_port, target_port_wwn_or_ip)</code> | Remove links. |
-| <code>admit_remote_copy_target(remote_copy_group_name, target_name, target_mode, local_remote_volume_pair_list=None)</code> | Add target. |
-| <code>dismiss_remote_copy_target(remote_copy_group_name, target_name)</code> | Remove target. |
-| <code>show_remote_copy_service()</code> | Display service info. |
-| <code>rcopy_link_exists(target_name, source_port, target_port_wwn_or_ip)</code> | Check link existence. |
-| <code>start_remote_copy_service()</code> | Start replication service. |</p>
+| <code>create_remote_copy_group</code> | Create group. |
+| <code>delete_remote_copy_group</code> | Delete group. |
+| <code>modify_remote_copy_group</code> | Adjust local settings &amp; targets. |
+| <code>remote_copy_group_status</code> | Fetch status. |
+| <code>add_volume_to_remote_copy_group</code> | Admit volume. |
+| <code>remove_volume_from_remote_copy_group</code> | Remove volume. |
+| <code>start_remote_copy_group</code> | Start replication. |
+| <code>stop_remote_copy_group</code> | Stop replication. |
+| <code>synchronize_remote_copy_group</code> | Force synchronization. |
+| <code>admit_remote_copy_links</code> | Establish links. |
+| <code>dismiss_remote_copy_links</code> | Remove links. |
+| <code>admit_remote_copy_target</code> | Add target. |
+| <code>dismiss_remote_copy_target</code> | Remove target. |
+| <code>show_remote_copy_service</code> | Display service info. |
+| <code>rcopy_link_exists</code> | Check link existence. |
+| <code>start_remote_copy_service</code> | Start replication service. |</p>
 <p><strong>create_remote_copy_group</strong>
 Signature: <code>create_remote_copy_group(remote_copy_group_name, domain, remote_copy_targets, local_user_cpg, local_snap_cpg)</code></p>
 <table>

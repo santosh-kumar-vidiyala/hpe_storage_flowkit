@@ -124,19 +124,19 @@
 <p><strong>Methods Overview</strong>
 | Method | Purpose |
 |--------|---------|
-| <code>create_host(name, iscsiNames=None, FCWwns=None, host_domain=None, host_persona=None)</code> | Create host. |
-| <code>delete_host(name)</code> | Delete host. |
-| <code>modify_host(host_name, host_new_name, persona=None)</code> | Rename or change persona. |
-| <code>add_initiator_chap(host_name, chap_name, chap_secret, chap_secret_hex=False)</code> | Configure initiator CHAP. |
-| <code>remove_initiator_chap(host_name)</code> | Remove initiator CHAP. |
-| <code>initiator_chap_exists(host_name)</code> | Check if initiator CHAP present. |
-| <code>add_target_chap(host_name, chap_name, chap_secret, chap_secret_hex=False)</code> | Configure target CHAP. |
-| <code>remove_target_chap(host_name)</code> | Remove target CHAP. |
-| <code>queryHost(iqns=None, wwns=None)</code> | Query hosts by initiators. |
-| <code>add_fc_path_to_host(host_name, host_fc_wwns)</code> | Add FC paths. |
-| <code>remove_fc_path_from_host(host_name, host_fc_wwns, force_path_removal=False)</code> | Remove FC paths. |
-| <code>add_iscsi_path_to_host(host_name, host_iscsi_names)</code> | Add iSCSI initiators. |
-| <code>remove_iscsi_path_from_host(host_name, host_iscsi_names, force_path_removal=False)</code> | Remove iSCSI initiators. |</p>
+| <code>create_host</code> | Create host. |
+| <code>delete_host</code> | Delete host. |
+| <code>modify_host</code> | Rename or change persona. |
+| <code>add_initiator_chap</code> | Configure initiator CHAP. |
+| <code>remove_initiator_chap</code> | Remove initiator CHAP. |
+| <code>initiator_chap_exists</code> | Check if initiator CHAP present. |
+| <code>add_target_chap</code> | Configure target CHAP. |
+| <code>remove_target_chap</code> | Remove target CHAP. |
+| <code>queryHost</code> | Query hosts by initiators. |
+| <code>add_fc_path_to_host</code> | Add FC paths. |
+| <code>remove_fc_path_from_host</code> | Remove FC paths. |
+| <code>add_iscsi_path_to_host</code> | Add iSCSI initiators. |
+| <code>remove_iscsi_path_from_host</code> | Remove iSCSI initiators. |</p>
 <p><strong>create_host</strong>
 Signature: <code>create_host(name, iscsiNames=None, FCWwns=None, host_domain=None, host_persona=None)</code></p>
 <table>
