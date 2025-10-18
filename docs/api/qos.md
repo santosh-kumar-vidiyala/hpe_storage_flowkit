@@ -9,11 +9,11 @@ Define and manage Quality of Service (QoS) policies restricting I/O (bandwidth, 
 **Methods Overview**
 | Method | Purpose |
 |--------|---------|
-| `create_qos(name, params)` | Create QoS rule. |
-| `modify_qos(name, params)` | Modify QoS rule. |
-| `delete_qos(name)` | Delete QoS rule. |
-| `get_qos(name)` | Retrieve specific QoS. |
-| `list_qos()` | List all QoS rules. |
+| `create_qos` | Create QoS rule. |
+| `modify_qos` | Modify QoS rule. |
+| `delete_qos` | Delete QoS rule. |
+| `get_qos` | Retrieve specific QoS. |
+| `list_qos` | List all QoS rules. |
 
 **create_qos**
 Signature: `create_qos(name, params)`

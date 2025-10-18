@@ -9,10 +9,10 @@ Group volumes for policy management, exports and replication operations.
 **Methods Overview**
 | Method | Purpose |
 |--------|---------|
-| `create_volumeset(name, domain=None, setmembers=None)` | Create volume set. |
-| `delete_volumeset(name)` | Delete volume set. |
-| `add_volumes_to_volumeset(name, setmembers)` | Add volumes. |
-| `remove_volumes_from_volumeset(name, setmembers)` | Remove volumes. |
+| `create_volumeset` | Create volume set. |
+| `delete_volumeset` | Delete volume set. |
+| `add_volumes_to_volumeset` | Add volumes. |
+| `remove_volumes_from_volumeset` | Remove volumes. |
 
 **create_volumeset**
 Signature: `create_volumeset(name, domain=None, setmembers=None)`

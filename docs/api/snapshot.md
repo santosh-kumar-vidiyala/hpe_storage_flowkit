@@ -9,9 +9,9 @@ Manage virtual copy snapshots: creation, deletion, and promotion (making a snaps
 **Methods Overview**
 | Method | Purpose |
 |--------|---------|
-| `create_snapshot(volume_name, snapshot_name, optional=None)` | Create snapshot of a base volume. |
-| `delete_snapshot(snapshot_name)` | Delete a snapshot. |
-| `promoteVirtualCopy(name, params)` | Promote snapshot to base volume (restore). |
+| `create_snapshot` | Create snapshot of a base volume. |
+| `delete_snapshot` | Delete a snapshot. |
+| `promoteVirtualCopy` | Promote snapshot to base volume (restore). |
 
 **create_snapshot**
 Signature: `create_snapshot(volume_name, snapshot_name, optional=None)`

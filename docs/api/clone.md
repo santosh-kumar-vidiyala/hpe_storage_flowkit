@@ -9,11 +9,11 @@ Physical copy (clone) orchestration: create, monitor, stop/resync copies.
 **Methods Overview**
 | Method | Purpose |
 |--------|---------|
-| `onlinePhysicalCopyExists(src_name, phy_copy_name)` | Check online physical copy existence & task state. |
-| `offlinePhysicalCopyExists(src_name, phy_copy_name)` | Check offline copy existence. |
-| `copyVolume(src_name, dest_name, dest_cpg, optional=None)` | Initiate physical copy. |
-| `stopOfflinePhysicalCopy(name)` | Stop an offline copy task. |
-| `resyncPhysicalCopy(volume_name)` | Resync an existing physical copy pair. |
+| `onlinePhysicalCopyExists` | Check online physical copy existence & task state. |
+| `offlinePhysicalCopyExists` | Check offline copy existence. |
+| `copyVolume` | Initiate physical copy. |
+| `stopOfflinePhysicalCopy` | Stop an offline copy task. |
+| `resyncPhysicalCopy` | Resync an existing physical copy pair. |
 
 **copyVolume**
 Signature: `copyVolume(src_name, dest_name, dest_cpg, optional=None)`

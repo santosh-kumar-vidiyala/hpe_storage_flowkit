@@ -9,19 +9,19 @@ Manage host objects (initiator identities) and their attributes, CHAP security a
 **Methods Overview**
 | Method | Purpose |
 |--------|---------|
-| `create_host(name, iscsiNames=None, FCWwns=None, host_domain=None, host_persona=None)` | Create host. |
-| `delete_host(name)` | Delete host. |
-| `modify_host(host_name, host_new_name, persona=None)` | Rename or change persona. |
-| `add_initiator_chap(host_name, chap_name, chap_secret, chap_secret_hex=False)` | Configure initiator CHAP. |
-| `remove_initiator_chap(host_name)` | Remove initiator CHAP. |
-| `initiator_chap_exists(host_name)` | Check if initiator CHAP present. |
-| `add_target_chap(host_name, chap_name, chap_secret, chap_secret_hex=False)` | Configure target CHAP. |
-| `remove_target_chap(host_name)` | Remove target CHAP. |
-| `queryHost(iqns=None, wwns=None)` | Query hosts by initiators. |
-| `add_fc_path_to_host(host_name, host_fc_wwns)` | Add FC paths. |
-| `remove_fc_path_from_host(host_name, host_fc_wwns, force_path_removal=False)` | Remove FC paths. |
-| `add_iscsi_path_to_host(host_name, host_iscsi_names)` | Add iSCSI initiators. |
-| `remove_iscsi_path_from_host(host_name, host_iscsi_names, force_path_removal=False)` | Remove iSCSI initiators. |
+| `create_host` | Create host. |
+| `delete_host` | Delete host. |
+| `modify_host` | Rename or change persona. |
+| `add_initiator_chap` | Configure initiator CHAP. |
+| `remove_initiator_chap` | Remove initiator CHAP. |
+| `initiator_chap_exists` | Check if initiator CHAP present. |
+| `add_target_chap` | Configure target CHAP. |
+| `remove_target_chap` | Remove target CHAP. |
+| `queryHost` | Query hosts by initiators. |
+| `add_fc_path_to_host` | Add FC paths. |
+| `remove_fc_path_from_host` | Remove FC paths. |
+| `add_iscsi_path_to_host` | Add iSCSI initiators. |
+| `remove_iscsi_path_from_host` | Remove iSCSI initiators. |
 
 **create_host**
 Signature: `create_host(name, iscsiNames=None, FCWwns=None, host_domain=None, host_persona=None)`

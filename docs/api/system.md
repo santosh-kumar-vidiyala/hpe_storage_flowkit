@@ -9,9 +9,9 @@ Retrieve high-level system metadata, status, capacity and configuration details.
 **Representative Methods**
 | Method | Purpose |
 |--------|---------|
-| `get_system_status()` | Returns health/status summary. |
-| `get_capacity()` | Fetch capacity utilization metrics. |
-| `list_ports()` | Enumerate system ports and their state. |
+| `get_system_status` | Returns health/status summary. |
+| `get_capacity` | Fetch capacity utilization metrics. |
+| `list_ports` | Enumerate system ports and their state. |
 
 > Actual method names reflect those implemented in `SystemWorkflow`; adapt above if naming differs.
 

@@ -9,14 +9,14 @@ Snapshot schedule lifecycle utilities exposed directly on `AnsibleClient` (not a
 **Methods Overview**
 | Method | Purpose |
 |--------|---------|
-| `scheduleExists(schedule_name)` | Check if schedule exists. |
-| `createSchedule(schedule_name, taskfreq, payload)` | Create a new snapshot schedule. |
-| `deleteSchedule(schedule_name)` | Delete an existing schedule. |
-| `modifySchedule(name, new_name, task_freq)` | Modify schedule name and/or frequency. |
-| `getSchedule(schedule_name)` | Retrieve schedule definition. |
-| `getScheduleStatus(schedule_name)` | Retrieve current status/state. |
-| `suspendSchedule(schedule_name)` | Suspend execution of schedule. |
-| `resumeSchedule(schedule_name)` | Resume a suspended schedule. |
+| `scheduleExists` | Check if schedule exists. |
+| `createSchedule` | Create a new snapshot schedule. |
+| `deleteSchedule` | Delete an existing schedule. |
+| `modifySchedule` | Modify schedule name and/or frequency. |
+| `getSchedule` | Retrieve schedule definition. |
+| `getScheduleStatus` | Retrieve current status/state. |
+| `suspendSchedule` | Suspend execution of schedule. |
+| `resumeSchedule` | Resume a suspended schedule. |
 
 **Common Payload Keys (createSchedule)**
 | Key | Type | Description |
