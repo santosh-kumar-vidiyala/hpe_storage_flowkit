@@ -121,17 +121,49 @@
               
                 <h1 id="schedule-operations">Schedule Operations<a class="headerlink" href="#schedule-operations" title="Permanent link">&para;</a></h1>
 <p>Snapshot schedule lifecycle utilities exposed directly on <code>AnsibleClient</code> (not a separate workflow class). These methods manage recurring snapshot tasks with retention and expiration policies.</p>
-<p><strong>Methods Overview</strong>
-| Method | Purpose |
-|--------|---------|
-| <code>scheduleExists()</code> | Check if schedule exists. |
-| <code>createSchedule()</code> | Create a new snapshot schedule. |
-| <code>deleteSchedule()</code> | Delete an existing schedule. |
-| <code>modifySchedule()</code> | Modify schedule name and/or frequency. |
-| <code>getSchedule()</code> | Retrieve schedule definition. |
-| <code>getScheduleStatus()</code> | Retrieve current status/state. |
-| <code>suspendSchedule()</code> | Suspend execution of schedule. |
-| <code>resumeSchedule()</code> | Resume a suspended schedule. |</p>
+<p><strong>Methods Overview</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scheduleExists()</code></td>
+<td>Check if schedule exists.</td>
+</tr>
+<tr>
+<td><code>createSchedule()</code></td>
+<td>Create a new snapshot schedule.</td>
+</tr>
+<tr>
+<td><code>deleteSchedule()</code></td>
+<td>Delete an existing schedule.</td>
+</tr>
+<tr>
+<td><code>modifySchedule()</code></td>
+<td>Modify schedule name and/or frequency.</td>
+</tr>
+<tr>
+<td><code>getSchedule()</code></td>
+<td>Retrieve schedule definition.</td>
+</tr>
+<tr>
+<td><code>getScheduleStatus()</code></td>
+<td>Retrieve current status/state.</td>
+</tr>
+<tr>
+<td><code>suspendSchedule()</code></td>
+<td>Suspend execution of schedule.</td>
+</tr>
+<tr>
+<td><code>resumeSchedule()</code></td>
+<td>Resume a suspended schedule.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Common Payload Keys (createSchedule)</strong>
 | Key | Type | Description |
 |-----|------|-------------|
