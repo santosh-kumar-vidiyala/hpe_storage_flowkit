@@ -7,6 +7,7 @@ title: HostWorkflow
 Manage host objects (initiator identities) and their attributes, CHAP security and path assignments.
 
 **Methods Overview**
+
 | Method | Purpose |
 |--------|---------|
 | `create_host()` | Create host. |

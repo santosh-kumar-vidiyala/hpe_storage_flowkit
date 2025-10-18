@@ -7,6 +7,7 @@ title: SnapshotWorkflow
 Manage virtual copy snapshots: creation, deletion, and promotion (making a snapshot the active volume).
 
 **Methods Overview**
+
 | Method | Purpose |
 |--------|---------|
 | `create_snapshot()` | Create snapshot of a base volume. |

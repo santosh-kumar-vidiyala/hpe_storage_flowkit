@@ -7,6 +7,7 @@ title: CPGWorkflow
 Manage Common Provisioning Groups (CPGs) which define underlying storage pool characteristics.
 
 **Methods Overview**
+
 | Method | Purpose |
 |--------|---------|
 | `create_cpg()` | Create a new CPG. |
