@@ -7,6 +7,7 @@ title: CloneWorkflow
 Physical copy (clone) orchestration: create, monitor, stop/resync copies.
 
 **Methods Overview**
+
 | Method | Purpose |
 |--------|---------|
 | `onlinePhysicalCopyExists()` | Check online physical copy existence & task state. |

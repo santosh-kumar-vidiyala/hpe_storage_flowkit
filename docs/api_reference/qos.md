@@ -28,7 +28,7 @@ Signature: `create_qos(name, params)`
 
 **Returns:** dict - QoS resource.
 
-### modify_qos / delete_qos / get_qos / list_qos
+**modify_qos / delete_qos / get_qos / list_qos**
 Standard CRUD patterns with validation of existence and parameter keys before REST calls.
 
 ---
