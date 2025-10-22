@@ -101,14 +101,37 @@
               
                 <h1 id="cloneworkflow">CloneWorkflow<a class="headerlink" href="#cloneworkflow" title="Permanent link">&para;</a></h1>
 <p>Physical copy (clone) orchestration: create, monitor, stop/resync copies.</p>
-<p><strong>Methods Overview</strong>
-| Method | Purpose |
-|--------|---------|
-| <code>onlinePhysicalCopyExists()</code> | Check online physical copy existence &amp; task state. |
-| <code>offlinePhysicalCopyExists()</code> | Check offline copy existence. |
-| <code>copyVolume()</code> | Initiate physical copy. |
-| <code>stopOfflinePhysicalCopy()</code> | Stop an offline copy task. |
-| <code>resyncPhysicalCopy()</code> | Resync an existing physical copy pair. |</p>
+<p><strong>Methods Overview</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>onlinePhysicalCopyExists()</code></td>
+<td>Check online physical copy existence &amp; task state.</td>
+</tr>
+<tr>
+<td><code>offlinePhysicalCopyExists()</code></td>
+<td>Check offline copy existence.</td>
+</tr>
+<tr>
+<td><code>copyVolume()</code></td>
+<td>Initiate physical copy.</td>
+</tr>
+<tr>
+<td><code>stopOfflinePhysicalCopy()</code></td>
+<td>Stop an offline copy task.</td>
+</tr>
+<tr>
+<td><code>resyncPhysicalCopy()</code></td>
+<td>Resync an existing physical copy pair.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>copyVolume</strong>
 Signature: <code>copyVolume(src_name, dest_name, dest_cpg, optional=None)</code></p>
 <table>
