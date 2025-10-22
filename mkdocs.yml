@@ -1,0 +1,35 @@
+site_name: HPE Storage Flowkit
+theme:
+  name: readthedocs
+nav:
+  - Home: index.md
+  - API Reference:
+    - Overview: api_reference/index.md
+    - CPG: api_reference/cpg.md
+    - Volume: api_reference/volume.md
+    - Snapshot: api_reference/snapshot.md
+    - Clone: api_reference/clone.md
+    - VLUN: api_reference/vlun.md
+    - Host: api_reference/host.md
+    - Host Set: api_reference/hostset.md
+    - Volume Set: api_reference/volumeset.md
+    - QoS: api_reference/qos.md
+    - Remote Copy Group: api_reference/remote_copy_group.md
+    - System: api_reference/system.md
+    - Schedule: api_reference/schedule.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-org/your-repo
+
+extra_css:
+  - css/custom.css
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - footnotes
+  - def_list
