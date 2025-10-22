@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Host - HPE Storage Flowkit</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Host";
+        var mkdocs_page_input_path = "api_reference/host.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> HPE Storage Flowkit
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cpg/">CPG</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../volume/">Volume</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../snapshot/">Snapshot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clone/">Clone</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vlun/">VLUN</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Host</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hostset/">Host Set</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../volumeset/">Volume Set</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../qos/">QoS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../remote_copy_group/">Remote Copy Group</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../system/">System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../schedule/">Schedule</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">HPE Storage Flowkit</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">API Reference</li>
+      <li class="breadcrumb-item active">Host</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="hostworkflow">HostWorkflow<a class="headerlink" href="#hostworkflow" title="Permanent link">&para;</a></h1>
+<p>Manage host objects (initiator identities) and their attributes, CHAP security and path assignments.</p>
+<p><strong>Methods Overview</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>create_host()</code></td>
+<td>Create host.</td>
+</tr>
+<tr>
+<td><code>delete_host()</code></td>
+<td>Delete host.</td>
+</tr>
+<tr>
+<td><code>modify_host()</code></td>
+<td>Rename or change persona.</td>
+</tr>
+<tr>
+<td><code>add_initiator_chap()</code></td>
+<td>Configure initiator CHAP.</td>
+</tr>
+<tr>
+<td><code>remove_initiator_chap()</code></td>
+<td>Remove initiator CHAP.</td>
+</tr>
+<tr>
+<td><code>initiator_chap_exists()</code></td>
+<td>Check if initiator CHAP present.</td>
+</tr>
+<tr>
+<td><code>add_target_chap()</code></td>
+<td>Configure target CHAP.</td>
+</tr>
+<tr>
+<td><code>remove_target_chap()</code></td>
+<td>Remove target CHAP.</td>
+</tr>
+<tr>
+<td><code>queryHost()</code></td>
+<td>Query hosts by initiators.</td>
+</tr>
+<tr>
+<td><code>add_fc_path_to_host()</code></td>
+<td>Add FC paths.</td>
+</tr>
+<tr>
+<td><code>remove_fc_path_from_host()</code></td>
+<td>Remove FC paths.</td>
+</tr>
+<tr>
+<td><code>add_iscsi_path_to_host()</code></td>
+<td>Add iSCSI initiators.</td>
+</tr>
+<tr>
+<td><code>remove_iscsi_path_from_host()</code></td>
+<td>Remove iSCSI initiators.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>create_host</strong>
+Signature: <code>create_host(name, iscsiNames=None, FCWwns=None, host_domain=None, host_persona=None)</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>Host name.</td>
+</tr>
+<tr>
+<td>iscsiNames</td>
+<td>list[str]</td>
+<td>iSCSI IQNs to associate.</td>
+</tr>
+<tr>
+<td>FCWwns</td>
+<td>list[str]</td>
+<td>Fibre Channel WWNs. Normalized for formatting.</td>
+</tr>
+<tr>
+<td>host_domain</td>
+<td>str</td>
+<td>Optional domain.</td>
+</tr>
+<tr>
+<td>host_persona</td>
+<td>int</td>
+<td>Persona value (array-specific behavior profile).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preprocessing:</strong> Validates formatting of WWNs and IQNs, filters duplicates, ensures host does not exist.</p>
+<p><strong>Returns:</strong> dict - Host resource.</p>
+<p>Other methods follow similar patterns: existence checks and normalization prior to REST/SSH calls. CHAP operations verify secrets length and hex encoding if requested.</p>
+<hr />
+<p>© 2025 Hewlett Packard Enterprise. All rights reserved.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../vlun/" class="btn btn-neutral float-left" title="VLUN"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hostset/" class="btn btn-neutral float-right" title="Host Set">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../vlun/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../hostset/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

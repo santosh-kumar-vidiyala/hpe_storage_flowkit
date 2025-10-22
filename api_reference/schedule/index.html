@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Schedule - HPE Storage Flowkit</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Schedule";
+        var mkdocs_page_input_path = "api_reference/schedule.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> HPE Storage Flowkit
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cpg/">CPG</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../volume/">Volume</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../snapshot/">Snapshot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clone/">Clone</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vlun/">VLUN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../host/">Host</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hostset/">Host Set</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../volumeset/">Volume Set</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../qos/">QoS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../remote_copy_group/">Remote Copy Group</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../system/">System</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Schedule</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">HPE Storage Flowkit</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">API Reference</li>
+      <li class="breadcrumb-item active">Schedule</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="schedule-operations">Schedule Operations<a class="headerlink" href="#schedule-operations" title="Permanent link">&para;</a></h1>
+<p>Snapshot schedule lifecycle utilities exposed directly on <code>AnsibleClient</code> (not a separate workflow class). These methods manage recurring snapshot tasks with retention and expiration policies.</p>
+<p><strong>Methods Overview</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scheduleExists()</code></td>
+<td>Check if schedule exists.</td>
+</tr>
+<tr>
+<td><code>createSchedule()</code></td>
+<td>Create a new snapshot schedule.</td>
+</tr>
+<tr>
+<td><code>deleteSchedule()</code></td>
+<td>Delete an existing schedule.</td>
+</tr>
+<tr>
+<td><code>modifySchedule()</code></td>
+<td>Modify schedule name and/or frequency.</td>
+</tr>
+<tr>
+<td><code>getSchedule()</code></td>
+<td>Retrieve schedule definition.</td>
+</tr>
+<tr>
+<td><code>getScheduleStatus()</code></td>
+<td>Retrieve current status/state.</td>
+</tr>
+<tr>
+<td><code>suspendSchedule()</code></td>
+<td>Suspend execution of schedule.</td>
+</tr>
+<tr>
+<td><code>resumeSchedule()</code></td>
+<td>Resume a suspended schedule.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Common Payload Keys (createSchedule)</strong>
+| Key | Type | Description |
+|-----|------|-------------|
+| read_only | bool | If True, snapshots created read-only. |
+| expiration_time | int | Time value before expiration. |
+| expiration_unit | str | Unit for expiration (e.g. <code>hours</code>, <code>days</code>). Converted internally to hours. |
+| retention_time | int | Time to retain before deletion. |
+| retention_unit | str | Unit for retention (e.g. <code>hours</code>, <code>days</code>). Converted internally to hours. |
+| base_volume_name | str | Source volume for scheduled snapshots. |</p>
+<p><strong>Preprocessing:</strong> <code>preprocess_create_schedule(expiration_time, retention_time, expiration_unit, retention_unit)</code> converts units to hours and validates non-zero durations. If either duration resolves to 0 hours, creation aborts with an error (idempotent safeguard).</p>
+<p><strong>createSchedule</strong>
+Signature: <code>createSchedule(schedule_name, taskfreq, payload)</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>schedule_name</td>
+<td>str</td>
+<td>Yes</td>
+<td>Unique schedule name.</td>
+</tr>
+<tr>
+<td>taskfreq</td>
+<td>str</td>
+<td>Yes</td>
+<td>Frequency string (e.g. <code>hourly</code>, <code>daily</code>, cron-like tokens) consumed by underlying CLI/SSH.</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>dict</td>
+<td>Yes</td>
+<td>See payload keys above.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> tuple <code>(changed, failed, message, data)</code> reflecting creation result.</p>
+<p><strong>modifySchedule</strong>
+Signature: <code>modifySchedule(name, new_name, task_freq)</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>Yes</td>
+<td>Existing schedule name.</td>
+</tr>
+<tr>
+<td>new_name</td>
+<td>str</td>
+<td>No</td>
+<td>New name to rename schedule.</td>
+</tr>
+<tr>
+<td>task_freq</td>
+<td>str</td>
+<td>No</td>
+<td>Updated frequency string.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preprocessing:</strong> Builds <code>setsched</code> command options only for changed values; skips no-op modifications.</p>
+<p><strong>suspendSchedule / resumeSchedule</strong>
+Both validate existence (<code>scheduleExists</code>) before invoking underlying SSH command. Return tuple <code>(changed, failed, message, data)</code>; if absent, return <code>(False, False, "Schedule does not exist", {})</code>.</p>
+<p><strong>deleteSchedule</strong>
+Validates existence and issues force removal command. Returns deletion task result or no-op tuple if schedule absent.</p>
+<p><strong>Error Handling</strong>
+SSH command exceptions are caught and converted to message tuples; invalid preprocessing (zero retention/expiration) aborts early.</p>
+<hr />
+<p>© 2025 Hewlett Packard Enterprise. All rights reserved.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../system/" class="btn btn-neutral float-left" title="System"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../system/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

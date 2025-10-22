@@ -1,0 +1,121 @@
+/* ------------------------------------------------------------------
+	 Custom theme enhancements for HPE Storage Flowkit MkDocs (doc2)
+	 Based on unified design system implemented in primary docs.
+------------------------------------------------------------------- */
+
+:root {
+	--hf-font-sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+	--hf-font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+	--hf-color-bg: #ffffff;
+	--hf-color-bg-alt: #f5f7fa;
+	--hf-color-surface: #ffffff;
+	--hf-color-border: #d8dde6;
+	--hf-color-border-strong: #b8c2ce;
+	--hf-color-text: #1f252c;
+	--hf-color-text-soft: #4e5c6a;
+	--hf-color-primary: #063970;
+	--hf-color-primary-accent: #0a5aa8;
+	--hf-color-primary-bg: #e7f1fb;
+	--hf-radius-sm: 4px;
+	--hf-radius-md: 6px;
+	--hf-radius-lg: 10px;
+	--hf-shadow-sm: 0 1px 2px rgba(0,0,0,.08);
+	--hf-shadow-md: 0 4px 12px rgba(0,0,0,.12);
+	--hf-shadow-focus: 0 0 0 3px rgba(10,90,168,.25);
+	--hf-code-bg: #f5f7fb;
+	--hf-inline-code-bg: #f0f4f9;
+	--hf-transition: 130ms ease;
+	--hf-table-header-bg: #f3f6fa;
+	--hf-badge-bg: var(--hf-color-primary);
+	--hf-badge-text: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--hf-color-bg: #12161b;
+		--hf-color-bg-alt: #1d242b;
+		--hf-color-surface: #1b2229;
+		--hf-color-border: #2c3742;
+		--hf-color-border-strong: #3c4a57;
+		--hf-color-text: #d7dde2;
+		--hf-color-text-soft: #92a0ae;
+		--hf-color-primary: #4da3ff;
+		--hf-color-primary-accent: #73bbff;
+		--hf-color-primary-bg: #0e2f4d;
+		--hf-code-bg: #1e2730;
+		--hf-inline-code-bg: #25303a;
+		--hf-table-header-bg: #22303c;
+		--hf-badge-bg: #256fbf;
+	}
+}
+
+html { scroll-behavior:smooth; }
+body { font-family: var(--hf-font-sans); line-height:1.55; color: var(--hf-color-text); background: var(--hf-color-bg); -webkit-font-smoothing: antialiased; }
+h1 { font-weight:600; letter-spacing:.5px; margin-top:0; }
+h2, h3, h4 { font-weight:600; color: var(--hf-color-primary); }
+p, li { color: var(--hf-color-text-soft); }
+p strong, li strong { color: var(--hf-color-text); }
+
+/* Links */
+a { color: var(--hf-color-primary-accent); text-decoration:none; transition: color var(--hf-transition); }
+a:hover, a:focus { color: var(--hf-color-primary); text-decoration:underline; }
+a:focus-visible { outline:none; box-shadow: var(--hf-shadow-focus); border-radius: var(--hf-radius-sm); }
+
+/* Tables */
+table { border-collapse:collapse; width:100%; margin:0 0 1.5rem; font-size:.85rem; background: var(--hf-color-surface); }
+table th, table td { border:1px solid var(--hf-color-border); padding:6px 10px; vertical-align:top; }
+table th { background: var(--hf-table-header-bg); font-weight:600; color: var(--hf-color-primary); }
+tbody tr:nth-child(even) td { background: var(--hf-color-bg-alt); }
+tbody tr:hover td { background: var(--hf-color-primary-bg); transition: background var(--hf-transition); }
+
+/* Code */
+code, pre code { background: var(--hf-inline-code-bg); padding:2px 6px; border-radius: var(--hf-radius-sm); font-size:0.85em; font-family: var(--hf-font-mono); }
+pre { background: var(--hf-code-bg); border:1px solid var(--hf-color-border); padding:14px 18px; border-radius: var(--hf-radius-md); font-size:.85rem; overflow:auto; position:relative; }
+pre:hover { box-shadow: var(--hf-shadow-sm); }
+
+/* Badges */
+.badge { background: var(--hf-badge-bg); color: var(--hf-badge-text); padding:2px 6px; font-size:0.65rem; border-radius: var(--hf-radius-sm); letter-spacing:.5px; font-weight:600; display:inline-block; }
+
+/* Admonitions */
+.admonition { border-left:4px solid var(--hf-color-primary); padding:.6rem 1rem .75rem; background: var(--hf-color-primary-bg); border-radius:0 var(--hf-radius-md) var(--hf-radius-md) 0; margin:1.2rem 0; }
+.admonition-title { font-weight:600; margin-bottom:.25rem; }
+
+/* Layout */
+main { max-width:1000px; margin:0 auto; padding:1rem 2rem 3rem; }
+@media (max-width: 860px) { main { padding:1rem 1.25rem 3rem; } }
+p { margin:0 0 1rem; }
+hr { border:none; height:1px; background: var(--hf-color-border); margin:2.25rem 0 2rem; }
+
+/* Cards */
+.card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; margin:1.25rem 0 1.75rem; }
+.card { background: var(--hf-color-surface); border:1px solid var(--hf-color-border); border-radius: var(--hf-radius-md); padding:.9rem .95rem 1rem; position:relative; display:flex; flex-direction:column; gap:.4rem; transition:box-shadow var(--hf-transition), transform var(--hf-transition), border-color var(--hf-transition); }
+.card:hover { box-shadow: var(--hf-shadow-md); transform:translateY(-3px); border-color: var(--hf-color-border-strong); }
+.card h3, .card h4 { margin:.1rem 0 .2rem; font-size:1rem; }
+.card p { margin:0; font-size:.75rem; line-height:1.25rem; }
+
+/* Utilities */
+.muted { color: var(--hf-color-text-soft); }
+.shadow-sm { box-shadow: var(--hf-shadow-sm); }
+.shadow-md { box-shadow: var(--hf-shadow-md); }
+.pill { border-radius:999px !important; }
+.inline-flex { display:inline-flex; align-items:center; }
+.gap-sm { gap:.35rem; }
+.text-small { font-size:.75rem; }
+.nowrap { white-space:nowrap; }
+
+/* Navigation hover tweaks */
+.wy-menu-vertical a:hover { background: var(--hf-color-primary-bg); }
+.wy-menu-vertical li.current > a { background: var(--hf-color-primary-bg); }
+
+/* Scrollbar */
+*::-webkit-scrollbar { width:10px; height:10px; }
+*::-webkit-scrollbar-track { background: var(--hf-color-bg-alt); }
+*::-webkit-scrollbar-thumb { background: var(--hf-color-border); border-radius: var(--hf-radius-sm); }
+*::-webkit-scrollbar-thumb:hover { background: var(--hf-color-border-strong); }
+
+/* Print */
+@media print {
+	nav, .wy-nav-side, .wy-side-nav-search { display:none !important; }
+	main { max-width:100%; padding:0 0 1rem; }
+	a { text-decoration:none; color:#000; }
+}

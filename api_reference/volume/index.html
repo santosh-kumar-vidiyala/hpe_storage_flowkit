@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Volume - HPE Storage Flowkit</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Volume";
+        var mkdocs_page_input_path = "api_reference/volume.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> HPE Storage Flowkit
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cpg/">CPG</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Volume</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../snapshot/">Snapshot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clone/">Clone</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vlun/">VLUN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../host/">Host</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hostset/">Host Set</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../volumeset/">Volume Set</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../qos/">QoS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../remote_copy_group/">Remote Copy Group</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../system/">System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../schedule/">Schedule</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">HPE Storage Flowkit</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">API Reference</li>
+      <li class="breadcrumb-item active">Volume</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="volumeworkflow">VolumeWorkflow<a class="headerlink" href="#volumeworkflow" title="Permanent link">&para;</a></h1>
+<p>Operations for virtual volumes: create, inspect, modify, grow, tune and delete. Methods in <code>AnsibleClient</code> wrap underlying workflow logic and invoke preprocessing helpers to normalize inputs.</p>
+<p><strong>Methods Overview</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>create_volume()</code></td>
+<td>Create a new virtual volume.</td>
+</tr>
+<tr>
+<td><code>get_volume()</code></td>
+<td>Retrieve details for a volume.</td>
+</tr>
+<tr>
+<td><code>modify_volume()</code></td>
+<td>Update attributes (e.g. provisioning, userCPG).</td>
+</tr>
+<tr>
+<td><code>grow_volume()</code></td>
+<td>Increase capacity (operation + params determine growth).</td>
+</tr>
+<tr>
+<td><code>tune_volume()</code></td>
+<td>Adjust performance/provisioning characteristics.</td>
+</tr>
+<tr>
+<td><code>delete_volume()</code></td>
+<td>Delete a volume.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Method Reference</strong></p>
+<p><strong>create_volume</strong>
+Signature: <code>create_volume(name, cpg, size, size_unit, params=None)</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>Yes</td>
+<td>Name for the new volume.</td>
+</tr>
+<tr>
+<td>cpg</td>
+<td>str</td>
+<td>Yes</td>
+<td>User CPG providing storage.</td>
+</tr>
+<tr>
+<td>size</td>
+<td>int</td>
+<td>Yes</td>
+<td>Numeric size value before unit conversion.</td>
+</tr>
+<tr>
+<td>size_unit</td>
+<td>str</td>
+<td>Yes</td>
+<td>Unit string (MiB, GiB, TiB). Converted to MiB internally.</td>
+</tr>
+<tr>
+<td>params</td>
+<td>dict</td>
+<td>No</td>
+<td>Additional attributes (provisioning type, compression, dedup, snapCPG, etc.).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preprocessing:</strong> <code>preprocess_create_volume</code> validates size &amp; unit, converts to MiB, applies defaults (e.g. provisioning type), filters unsupported keys and may raise if volume exists (idempotence).</p>
+<p><strong>Returns:</strong> dict - Created volume resource.</p>
+<p><strong>get_volume</strong>
+Signature: <code>get_volume(name)</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>Yes</td>
+<td>Volume name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preprocessing:</strong> None (direct REST retrieval). May wrap exceptions.</p>
+<p><strong>Returns:</strong> dict - Volume details.</p>
+<p><strong>modify_volume</strong>
+Signature: <code>modify_volume(name, volume_mods, app_type=None)</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>Yes</td>
+<td>Target volume name.</td>
+</tr>
+<tr>
+<td>volume_mods</td>
+<td>dict</td>
+<td>Yes</td>
+<td>Fields to change (e.g. newName, userCPG, provisioningType).</td>
+</tr>
+<tr>
+<td>app_type</td>
+<td>str</td>
+<td>No</td>
+<td>Optional application classification appended to payload if provided.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preprocessing:</strong> Internal validation of keys; may enrich payload with application metadata, removes no-op modifications.</p>
+<p><strong>Returns:</strong> dict - Updated resource state.</p>
+<p><strong>grow_volume</strong>
+Signature: <code>grow_volume(name, operation, params)</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>Yes</td>
+<td>Volume name.</td>
+</tr>
+<tr>
+<td>operation</td>
+<td>str</td>
+<td>Yes</td>
+<td>Growth mode keyword (e.g. <code>add</code>, <code>resize</code>).</td>
+</tr>
+<tr>
+<td>params</td>
+<td>dict</td>
+<td>Yes</td>
+<td>Operation-specific values (e.g. <code>additional_size</code>, <code>new_total_size</code>, unit).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preprocessing:</strong> <code>preprocess_grow_volume</code> reads current size (<code>get_volume</code>) and calculates new sizeMiB; returns 0 if no change, preventing unnecessary REST action.</p>
+<p><strong>Returns:</strong> dict - Growth operation result or idempotent no-op info.</p>
+<p><strong>tune_volume</strong>
+Signature: <code>tune_volume(name, operation, params)</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>Yes</td>
+<td>Volume name.</td>
+</tr>
+<tr>
+<td>operation</td>
+<td>str</td>
+<td>Yes</td>
+<td>Tuning action (e.g. <code>convert_provisioning</code>, <code>set_compression</code>).</td>
+</tr>
+<tr>
+<td>params</td>
+<td>dict</td>
+<td>Yes</td>
+<td>Required parameters for selected action.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preprocessing:</strong> <code>preprocess_tune_volume</code> inspects current volume details to build minimal delta (e.g. only change provisioning if different) and sets appropriate action codes.</p>
+<p><strong>Returns:</strong> dict - Tuning result or no-op indicator.</p>
+<p><strong>delete_volume</strong>
+Signature: <code>delete_volume(name)</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>Yes</td>
+<td>Volume name to delete.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preprocessing:</strong> <code>preprocess_delete_volume</code> ensures volume exists and is safe to remove (e.g. not exported) before issuing REST delete. May raise early exception if constraints violated.</p>
+<p><strong>Returns:</strong> dict | None - Deletion response or None if already absent (idempotent).</p>
+<p><strong>Examples</strong></p>
+<pre><code class="language-python">client.create_volume(&quot;db-vol&quot;, cpg=&quot;FC_r5&quot;, size=50, size_unit=&quot;GiB&quot;, params={&quot;compression&quot;: True})
+client.grow_volume(&quot;db-vol&quot;, operation=&quot;add&quot;, params={&quot;additional&quot;: 10, &quot;unit&quot;: &quot;GiB&quot;})
+client.tune_volume(&quot;db-vol&quot;, operation=&quot;convert_provisioning&quot;, params={&quot;newType&quot;: &quot;tpvv&quot;})
+</code></pre>
+<p><strong>Error Handling</strong>
+All methods may raise <code>HPEStorageException</code> (wrapped) for array-side errors; preprocessing raises <code>ValueError</code> or custom exceptions for invalid inputs prior to REST calls.</p>
+<hr />
+<p>© 2025 Hewlett Packard Enterprise. All rights reserved.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../cpg/" class="btn btn-neutral float-left" title="CPG"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../snapshot/" class="btn btn-neutral float-right" title="Snapshot">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../cpg/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../snapshot/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>HPE Storage Flowkit</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> HPE Storage Flowkit
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/cpg/">CPG</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/volume/">Volume</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/snapshot/">Snapshot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/clone/">Clone</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/vlun/">VLUN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/host/">Host</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/hostset/">Host Set</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/volumeset/">Volume Set</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/qos/">QoS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/remote_copy_group/">Remote Copy Group</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/system/">System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference/schedule/">Schedule</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">HPE Storage Flowkit</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="hpe-storage-flowkit">HPE Storage Flowkit<a class="headerlink" href="#hpe-storage-flowkit" title="Permanent link">&para;</a></h1>
+<p>Workflow‑centric Python toolkit for HPE Storage arrays. It layers orchestration and idempotent behaviors over raw REST endpoints, providing high‑level workflow classes you can call directly or via the composite <code>AnsibleClient</code>.</p>
+<p><strong>Key Concepts</strong></p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workflow Classes</td>
+<td>Domain‑specific facades (VolumeWorkflow, SnapshotWorkflow, etc.) mapping method calls to REST endpoints or SSH commands.</td>
+</tr>
+<tr>
+<td>Idempotence</td>
+<td>Methods aim to avoid unnecessary changes; existence checks precede destructive operations.</td>
+</tr>
+<tr>
+<td>Composite Client</td>
+<td><code>AnsibleClient</code> aggregates all workflows into a single interface for automation.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quick Start</strong></p>
+<pre><code class="language-python">from hpe_storage_flowkit.src.ansible_client import AnsibleClient
+
+client = AnsibleClient(api_url=&quot;https://array.example&quot;, username=&quot;admin&quot;, password=&quot;secret&quot;)
+client.create_volume(
+    name=&quot;demo-vol&quot;,
+    cpg=&quot;FC_r5&quot;,
+    size=10,
+    size_unit=&quot;GiB&quot;,
+    params={&quot;compression&quot;: True}
+)
+</code></pre>
+<p><strong>Next Steps</strong></p>
+<ol>
+<li>Explore a workflow page (e.g., VolumeWorkflow) to see endpoints and parameter tables.</li>
+<li>Integrate with automation by composing workflows inside your toolchain.</li>
+<li>Add CI to rebuild this site using <code>mkdocs build</code> on commits.</li>
+</ol>
+<p><strong>Contributing</strong></p>
+<p>Pull requests: ensure new methods have updated docs. Automated generation script (future) will live under <code>tools/</code>. Proposals welcome.</p>
+<hr />
+<p>© 2025 Hewlett Packard Enterprise. All rights reserved.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="api_reference/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="api_reference/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2025-10-22 05:14:04.256113+00:00
+-->

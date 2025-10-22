@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Overview - HPE Storage Flowkit</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "api_reference/index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> HPE Storage Flowkit
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="cpg/">CPG</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="volume/">Volume</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="snapshot/">Snapshot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="clone/">Clone</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="vlun/">VLUN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="host/">Host</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hostset/">Host Set</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="volumeset/">Volume Set</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="qos/">QoS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="remote_copy_group/">Remote Copy Group</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="system/">System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="schedule/">Schedule</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">HPE Storage Flowkit</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">API Reference</li>
+      <li class="breadcrumb-item active">Overview</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<p>This section provides reference documentation for each workflow class in the HPE Storage FlowKit. Workflows encapsulate domain logic, REST/SSH interactions, idempotent checks, and preprocessing helpers that sanitize user inputs before they are sent to the array.</p>
+<p><strong>Workflow Index</strong></p>
+<table>
+<thead>
+<tr>
+<th>Workflow</th>
+<th>Purpose</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPG</td>
+<td>Manage Common Provisioning Groups (create/delete).</td>
+<td><a href="cpg/">Open</a></td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Create, modify, grow, tune, delete volumes.</td>
+<td><a href="volume/">Open</a></td>
+</tr>
+<tr>
+<td>Snapshot</td>
+<td>Snapshot lifecycle: create, promote, delete.</td>
+<td><a href="snapshot/">Open</a></td>
+</tr>
+<tr>
+<td>Clone</td>
+<td>Physical copy orchestration (online/offline copy).</td>
+<td><a href="clone/">Open</a></td>
+</tr>
+<tr>
+<td>VLUN</td>
+<td>Export/unexport volumes &amp; sets to hosts/host sets.</td>
+<td><a href="vlun/">Open</a></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>Host lifecycle &amp; initiator / CHAP management.</td>
+<td><a href="host/">Open</a></td>
+</tr>
+<tr>
+<td>Host Set</td>
+<td>Group hosts; manage membership.</td>
+<td><a href="hostset/">Open</a></td>
+</tr>
+<tr>
+<td>Volume Set</td>
+<td>Group volumes; manage membership &amp; export.</td>
+<td><a href="volumeset/">Open</a></td>
+</tr>
+<tr>
+<td>QoS</td>
+<td>QoS policy CRUD and listing.</td>
+<td><a href="qos/">Open</a></td>
+</tr>
+<tr>
+<td>Remote Copy Group</td>
+<td>Remote replication groups &amp; volumes control.</td>
+<td><a href="remote_copy_group/">Open</a></td>
+</tr>
+<tr>
+<td>System</td>
+<td>System level status &amp; metadata retrieval.</td>
+<td><a href="system/">Open</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preprocessing Helpers Overview</strong></p>
+<p>Many methods call a preprocessing function (e.g. <code>preprocess_create_volume</code>) before performing the REST/SSH action. Purposes include:</p>
+<ul>
+<li>Normalizing parameter names and units (e.g. converting size + unit to MiB).</li>
+<li>Building action payloads (e.g. setting action IDs for grow/tune operations).</li>
+<li>Validating user input and raising early Python exceptions rather than returning array errors.</li>
+<li>Idempotence: skipping operations when objects already exist or parameters imply no change.</li>
+</ul>
+<p>Detailed notes for each method appear on its workflow page under the "Preprocessing" subsection.</p>
+<p><strong>Using Workflows via AnsibleClient</strong></p>
+<pre><code class="language-python">from hpe_storage_flowkit.src.ansible_client import AnsibleClient
+
+client = AnsibleClient(api_url=&quot;https://array.example&quot;, username=&quot;admin&quot;, password=&quot;secret&quot;)
+client.create_volume(
+    name=&quot;demo-vol&quot;,
+    cpg=&quot;FC_r5&quot;,
+    size=10,
+    size_unit=&quot;GiB&quot;,
+    params={&quot;compression&quot;: True}
+)
+</code></pre>
+<p>The <code>AnsibleClient</code> inherits all workflow methods; each exposes a high-level operation with built-in preprocessing and idempotent checks.</p>
+<hr />
+<p>© 2025 Hewlett Packard Enterprise. All rights reserved.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="cpg/" class="btn btn-neutral float-right" title="CPG">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="cpg/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
